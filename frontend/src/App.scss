@@ -12,6 +12,7 @@ body {
   background-image: url(assets/ciel.png);
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-x: hidden;
 }
 
 nav {
@@ -36,6 +37,17 @@ li {
 
 li:hover {
   color: white;
+}
+.sw {
+  margin: 0 auto;
+  max-width: 60%;
+}
+.img {
+  min-width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
 }
 
 footer {
