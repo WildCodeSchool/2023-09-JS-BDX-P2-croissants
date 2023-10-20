@@ -1,4 +1,4 @@
-$primary-color: #bddbf5;
+$primary-color: #EAEAEA;
 $img-width: 130px;
 
 * {
@@ -23,6 +23,9 @@ nav {
   align-items: center;
   background-color: $primary-color;
   padding: 10px;
+  margin: 15px;
+  border-radius: 10px;
+  position: sticky;
 }
 
 img {
@@ -44,7 +47,7 @@ li:hover {
 footer {
   background-color: $primary-color;
   position: absolute;
-  width: 100%;
+  width: 97%;
   height: 3.125rem;
   left: 0;
   bottom: 0;
@@ -52,6 +55,8 @@ footer {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  margin: 15px;
+  border-radius: 10px;
 }
 
 footer button {
@@ -96,4 +101,3 @@ footer button {
     display: none;
   }
 }
-
