@@ -1,13 +1,14 @@
-$primary-color: #EAEAEA;
-$img-width: 130px;
+$primary-color: #eaeaea;
 
 * {
   padding: 0;
   margin: 0;
 }
+
 :root {
   --footer-height: 35px;
 }
+
 body {
   position: relative;
   min-height: 100vh;
@@ -15,33 +16,6 @@ body {
   background-image: url(assets/ciel.png);
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: $primary-color;
-  padding: 10px;
-  margin: 15px;
-  border-radius: 10px;
-  position: sticky;
-}
-
-img {
-  width: $img-width;
-}
-
-input {
-  display: none;
-}
-
-li {
-  display: none;
-}
-
-li:hover {
-  color: white;
 }
 
 footer {
@@ -86,6 +60,7 @@ footer button {
     margin-right: 0.625rem;
     padding: 0.313rem;
   }
+
   footer {
     justify-content: space-evenly;
     height: 6.25rem;
@@ -93,11 +68,13 @@ footer button {
 
   footer button {
     display: block;
-    max-width: 10%;
+    max-width: 20%;
     padding: 0.313rem;
   }
-
-  .hamburger-react {
+  .slideOutMenu.open {
     display: none;
+  }
+  .input {
+    display: inline;
   }
 }
