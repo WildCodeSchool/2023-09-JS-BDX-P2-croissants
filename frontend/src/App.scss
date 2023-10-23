@@ -1,4 +1,5 @@
 $primary-color: #eaeaea;
+$img-width: 130px;
 
 * {
   padding: 0;
@@ -34,8 +35,17 @@ footer {
   border-radius: 10px;
 }
 
-footer button {
-  display: none;
+.sw {
+  margin: 16vh auto 8vh auto;
+  max-width: 80%;
+}
+.img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
 }
 
 @media screen and (min-width: 760px) {
@@ -84,4 +94,5 @@ footer button {
 .moovie-img {
   border-radius: 25px;
   padding-top: 10px;
+  width:$img-width;
 }
