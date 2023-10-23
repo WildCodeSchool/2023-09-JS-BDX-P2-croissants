@@ -38,29 +38,6 @@ footer button {
 }
 
 @media screen and (min-width: 760px) {
-  li {
-    list-style-type: none;
-    display: inline;
-    padding: 16px;
-  }
-
-  .navLinks {
-    display: flex;
-    align-items: center;
-  }
-
-  input {
-    display: block;
-    border: none;
-    align-self: center;
-    border-radius: 3.125rem;
-    height: 1.875rem;
-    width: 12.5rem;
-    margin-top: 0.625rem;
-    margin-right: 0.625rem;
-    padding: 0.313rem;
-  }
-
   footer {
     justify-content: space-evenly;
     height: 6.25rem;
