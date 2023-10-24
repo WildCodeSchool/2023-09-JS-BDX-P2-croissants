@@ -12,16 +12,17 @@ function App() {
   useEffect(() => {
     axios.get("https://ghibliapi.vercel.app/films").then(({ data }) => {
       setApi(data);
-    });
+    }).catch(() => {alert("erreur")});
   }, []);
 
   return (
     <div>
       <NavBar />
-      <FilmOfDay />
+      <div className="global-container">
+        <FilmOfDay />
 
-      <MoovieCard api={api} key={api.id} />
-
+        <MoovieCard api={api} key={api.id} />
+      </div>
       <Footer />
     </div>
   );
