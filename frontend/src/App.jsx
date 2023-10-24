@@ -9,15 +9,19 @@ function App() {
   const [api, setApi] = useState();
 
   useEffect(() => {
-    axios
-      .get("https://ghibliapi.vercel.app/films")
-      .then((res) => console.log(res));
+    axios.get("https://ghibliapi.vercel.app/films").then(({ data }) => {
+      setApi(data);
+    }).catch(() => {alert("erreur")});
   }, []);
 
   return (
     <div>
       <NavBar />
-      <PageFilm />
+      <div className="global-container">
+        <FilmOfDay />
+
+        <MoovieCard api={api} key={api.id} />
+      </div>
       <Footer />
     </div>
   );
