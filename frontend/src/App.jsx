@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import MoovieCard from "./components/MoovieCard";
 import FilmOfDay from "./components/FilmOfDay";
+import BackToTopButton from "./components/BackToTopButton";
 
 function App() {
   const [api, setApi] = useState([]);
@@ -29,6 +30,7 @@ function App() {
         <MoovieCard api={api} key={api.id} />
       </div>
       <Footer />
+      <BackToTopButton />
     </div>
   );
 }
