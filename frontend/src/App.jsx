@@ -8,16 +8,19 @@ import MoovieCard from "./components/MoovieCard";
 import Filter from "./components/Filter";
 
 function App() {
-  const [api, setApi] = useState([]);
+  const [allMovies, setAllMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://ghibliapi.vercel.app/films")
-      .then(({ data }) => {
-        setApi(data);
+      .get(`https://ghibliapi.vercel.app/films/`)
+      .then((response) => {
+        const movies = response.data;
+        setAllMovies(movies);
+        setFilteredMovies(movies);
       })
-      .catch(() => {
-        alert("erreur");
+      .catch((error) => {
+        console.error("Erreur lors de la récupération des films:", error);
       });
   }, []);
 
@@ -26,8 +29,8 @@ function App() {
       <NavBar />
       <div className="global-container">
         <FilmOfDay />
-        <Filter />
-        <MoovieCard api={api} key={api.id} />
+        <Filter setFilteredMovies={setFilteredMovies} allMovies={allMovies} />
+        <MoovieCard movies={filteredMovies} />
       </div>
       <Footer />
     </div>
