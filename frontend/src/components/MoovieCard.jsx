@@ -6,7 +6,7 @@ function MoovieCard({ api }) {
           <img className="moovie-img" src={moovie.image} alt={moovie.title} />
           <h3 className="moovie-h3">{moovie.title}</h3>
           <p>{moovie.release_date}</p>
-          <div>⭐ {moovie.rt_score}</div>
+          <div>⭐ : {moovie.rt_score}</div>
         </div>
       ))}
     </div>

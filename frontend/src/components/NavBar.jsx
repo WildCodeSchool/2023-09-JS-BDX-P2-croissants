@@ -15,9 +15,9 @@ function NavBar() {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Accueil</Nav.Link>
-            <Nav.Link href="#about">À propos</Nav.Link>
-            <Nav.Link href="#quiz">Quizz</Nav.Link>
+            <Nav.Link href="/">Accueil</Nav.Link>
+            <Nav.Link href="/about">À propos</Nav.Link>
+            <Nav.Link href="/quizz">Quizz</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
