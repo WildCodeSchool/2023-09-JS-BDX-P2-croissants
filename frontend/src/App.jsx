@@ -1,13 +1,13 @@
 import "./App.scss";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import PageFilm from "./components/PageFilm";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import MoovieCard from "./components/MoovieCard";
+import FilmOfDay from "./components/FilmOfDay";
 
 function App() {
-  const [api, setApi] = useState();
+  const [api, setApi] = useState([]);
 
   useEffect(() => {
     axios
