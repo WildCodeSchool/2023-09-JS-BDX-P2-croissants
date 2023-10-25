@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../NavBar.scss";
+import "../../src/Styles/NavBar.scss";
 
 function NavBar() {
   return (
