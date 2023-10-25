@@ -20,13 +20,13 @@ body {
   overflow-x: hidden;
   min-width: 500px;
 }
- .global-container {
+.global-container {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 12px;
   margin-bottom: 100px;
- }
+}
 
 footer {
   background-color: $primary-color;
@@ -40,7 +40,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   margin: 15px;
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 .sw {
@@ -90,6 +90,70 @@ footer {
   border-radius: 25px;
   padding-top: 10px;
   width: $img-width;
+}
+
+.container-filter {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(234, 234, 234, 0.5);
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.fil-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-title {
+  display: flex;
+  justify-content: space-around;
+}
+
+.filter-range {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.filter-year,
+.filter-star {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.filter-year h3,
+.filter-star h3 {
+  font-size: 15px;
+  text-align: left;
+}
+
+.year,
+.star {
+  padding: 5px;
+  font-size: 0.8rem;
+  width: 40%;
+  flex-grow: 1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-director div {
+  display: flex;
+  align-items: center;
+  position: relative; /* Nécessaire pour positionner les cases à cocher */
+  margin-bottom: 10px; /* Espace entre chaque paire de label et input */
+}
+
+.filter-director label {
+  flex: 1; /* Les labels occupent tout l'espace disponible horizontalement */
+  margin-right: 10px; /* Espace entre le label et l'input */
+  text-align: right; /* Alignez le texte du label à droite */
 }
 
 @media screen and (min-width: 760px) {
