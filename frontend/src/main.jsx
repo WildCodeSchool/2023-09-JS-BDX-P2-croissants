@@ -5,8 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import { About } from "./pages/About";
-import { Quizz } from "./pages/Quizz";
 import PageFilm from "./pages/PageFilms";
+import Quizz from "./pages/Quizz";
 
 const router = createBrowserRouter([
   {
