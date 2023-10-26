@@ -10,6 +10,7 @@ import Filter from "./components/Filter";
 function App() {
   const [allMovies, setAllMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     axios
@@ -24,12 +25,24 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    // Filtrer les films lorsque le terme de recherche change
+    const filtered = allMovies.filter((movie) =>
+      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredMovies(filtered);
+  }, [searchTerm, allMovies]);
+
   return (
     <div>
-      <NavBar />
+      <NavBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
       <div className="global-container">
         <FilmOfDay />
-        <Filter setFilteredMovies={setFilteredMovies} allMovies={allMovies} />
+        <Filter
+          setFilteredMovies={setFilteredMovies}
+          allMovies={allMovies}
+          searchTerms={searchTerm}
+        />
         <MoovieCard movies={filteredMovies} />
       </div>
       <Footer />

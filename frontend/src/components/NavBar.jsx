@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
@@ -5,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../NavBar.scss";
 
-function NavBar() {
+function NavBar({ searchTerm, setSearchTerm }) {
   return (
     <Navbar expand="md" className="navbar-custom" fixed="top">
       <Container fluid>
@@ -25,6 +26,10 @@ function NavBar() {
               placeholder="Rechercher"
               className="me-2 search-input"
               aria-label="Search"
+              value={searchTerm}
+              onChange={(event) => {
+                setSearchTerm(event.target.value);
+              }}
             />
           </Form>
         </Navbar.Collapse>
@@ -32,5 +37,10 @@ function NavBar() {
     </Navbar>
   );
 }
+
+NavBar.propTypes = {
+  searchTerm: PropTypes.string.isRequired,
+  setSearchTerm: PropTypes.func.isRequired,
+};
 
 export default NavBar;

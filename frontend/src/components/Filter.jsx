@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import DateYearPicker from "./DateYearPicker";
 import StarPicker from "./StarPicker";
 
-function Filter({ setFilteredMovies, allMovies }) {
+function Filter({ setFilteredMovies, allMovies, searchTerms }) {
   const [directors, setDirectors] = useState({
     "Hayao Miyazaki": false,
     "Isao Takahata": false,
@@ -33,7 +33,6 @@ function Filter({ setFilteredMovies, allMovies }) {
     const selectedDirectors = Object.keys(directors).filter(
       (director) => directors[director]
     );
-
     // Si aucun réalisateur n'est sélectionné
     if (selectedDirectors.length === 0) {
       setFilteredMovies(allMovies); // Afficher tous les films
@@ -56,6 +55,14 @@ function Filter({ setFilteredMovies, allMovies }) {
     }
   }, [directors, allMovies]); // Exécuter l'effet chaque fois que 'directors' ou 'allMovies' change
 
+  useEffect(() => {
+    // Filtrer les films lorsque le terme de recherche change
+    const filtered = allMovies.filter((movie) =>
+      movie.title.toLowerCase().includes(searchTerms.toLowerCase())
+    );
+    setFilteredMovies(filtered);
+  }, [searchTerms]);
+
   Filter.propTypes = {
     setFilteredMovies: PropTypes.func.isRequired,
     allMovies: PropTypes.arrayOf(
@@ -75,6 +82,7 @@ function Filter({ setFilteredMovies, allMovies }) {
         image: PropTypes.string.isRequired,
       }).isRequired
     ),
+    searchTerms: PropTypes.string.isRequired,
   };
 
   Filter.defaultProps = {
