@@ -15,9 +15,8 @@ function PageFilm() {
         setApi(data);
       })
       .catch(() => {
-        alert("erreur");
+        console.error("erreur");
       });
-    console.log(api);
   }, []);
 
   const { moovieId } = useParams();
@@ -43,7 +42,6 @@ function PageFilm() {
       <div id="more-infos">
         <h4>Director: {thisMoovie?.director}</h4>
         <h5>Producer: {thisMoovie?.producer}</h5>
-        <h6></h6>
       </div>
       <div id="trailer-container">
         <img

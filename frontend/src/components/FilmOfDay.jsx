@@ -6,12 +6,12 @@ import "swiper/scss/pagination";
 import "swiper/scss/navigation";
 import "swiper/scss/effect-cube";
 
-const FilmOfDay = () => {
+function FilmOfDay() {
   return (
     <div className="sw">
       <Swiper
-        effect={"cube"}
-        grabCursor={true}
+        effect="cube"
+        grabCursor
         autoplay={{
           delay: 3500,
           disableOnInteraction: false,
@@ -25,7 +25,7 @@ const FilmOfDay = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
+        navigation
         modules={[Autoplay, Pagination, Navigation, EffectCube]}
         className="swiper"
       >
@@ -60,6 +60,6 @@ const FilmOfDay = () => {
       </Swiper>
     </div>
   );
-};
+}
 
 export default FilmOfDay;
