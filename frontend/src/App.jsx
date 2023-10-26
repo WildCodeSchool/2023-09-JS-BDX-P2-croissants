@@ -1,13 +1,12 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "./Styles/App.scss";
 import "./Styles/PageFilms.scss";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import MoovieCard from "./components/MoovieCard";
 import FilmOfDay from "./components/FilmOfDay";
 import BackToTopButton from "./components/BackToTopButton";
-import PageFilm from "./pages/PageFilms";
 
 function App() {
   const [api, setApi] = useState([]);
@@ -19,7 +18,7 @@ function App() {
         setApi(data);
       })
       .catch(() => {
-        alert("erreur");
+        console.error("erreur");
       });
   }, []);
 
