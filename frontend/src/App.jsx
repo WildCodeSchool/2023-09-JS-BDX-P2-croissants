@@ -6,6 +6,7 @@ import axios from "axios";
 import MoovieCard from "./components/MoovieCard";
 import FilmOfDay from "./components/FilmOfDay";
 import BackToTopButton from "./components/BackToTopButton";
+import PageFilm from "./pages/PageFilms";
 
 function App() {
   const [api, setApi] = useState([]);
@@ -20,6 +21,8 @@ function App() {
         alert("erreur");
       });
   }, []);
+
+  <PageFilm api={api} />;
 
   return (
     <div>
