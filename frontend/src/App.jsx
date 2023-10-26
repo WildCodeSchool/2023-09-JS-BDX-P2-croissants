@@ -1,12 +1,11 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import "./Styles/App.scss";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import MoovieCard from "./components/MoovieCard";
 import FilmOfDay from "./components/FilmOfDay";
 import BackToTopButton from "./components/BackToTopButton";
-import PageFilm from "./pages/PageFilms";
 
 function App() {
   const [api, setApi] = useState([]);
@@ -21,8 +20,6 @@ function App() {
         alert("erreur");
       });
   }, []);
-
-  <PageFilm api={api} />;
 
   return (
     <div>

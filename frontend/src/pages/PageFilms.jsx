@@ -22,9 +22,6 @@ function PageFilm() {
     setThisMoovie(api.find((moovie) => moovie.title === moovieId));
   }, [api]);
 
-  console.log(thisMoovie);
-  console.log({ moovieId });
-
   return (
     <main id="pageFilm">
       <div id="img-film-container">
@@ -49,4 +46,5 @@ function PageFilm() {
     </main>
   );
 }
+
 export default PageFilm;
