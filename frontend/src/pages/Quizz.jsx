@@ -1,9 +1,8 @@
-import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import "../Styles/Quizz.scss";
 
-export const Quizz = () => {
+function Quizz() {
   return (
     <div className="quizz-container">
       <NavBar />
@@ -20,4 +19,5 @@ export const Quizz = () => {
       <Footer />
     </div>
   );
-};
+}
+export default Quizz;
