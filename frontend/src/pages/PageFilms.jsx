@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 function PageFilm() {
   const [api, setApi] = useState([]);
@@ -15,6 +17,7 @@ function PageFilm() {
       .catch(() => {
         alert("erreur");
       });
+    console.log(api);
   }, []);
 
   const { moovieId } = useParams();
@@ -22,11 +25,9 @@ function PageFilm() {
     setThisMoovie(api.find((moovie) => moovie.title === moovieId));
   }, [api]);
 
-  console.log(thisMoovie);
-  console.log({ moovieId });
-
   return (
     <main id="pageFilm">
+      <NavBar />
       <div id="img-film-container">
         <img
           id="img-film"
@@ -34,18 +35,24 @@ function PageFilm() {
           alt="img du film, 16rem x 16rem"
         />
       </div>
-      <h2 id="movie-title-page">{thisMoovie?.title}</h2>
-      <div id="synopsis-container">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum
-        luctus fermentum. Praesent non dolor in tellus consectetur sagittis.
-        Morbi id lectus sed tellus imperdiet elementum vel venenatis nunc.
-        Praesent efficitur non ipsum ac bibendum. In arcu ex, feugiat nec velit
-        nec, mollis accumsan ante. Interdum et malesuada fames ac ante ipsum
-        primis in faucibus. Etiam consequat velit dapibus feugiat cursus
+      <h2 id="movie-title-page">
+        {thisMoovie?.original_title_romanised} <br />
+        {thisMoovie?.original_title}
+      </h2>
+      <div id="synopsis-container">{thisMoovie?.description}</div>
+      <div id="more-infos">
+        <h4>Director: {thisMoovie?.director}</h4>
+        <h5>Producer: {thisMoovie?.producer}</h5>
+        <h6></h6>
       </div>
       <div id="trailer-container">
-        <img id="img-trailer" src="" alt="trailer, 16rem x 16rem" />
+        <img
+          id="img-trailer"
+          src={thisMoovie?.movie_banner}
+          alt="trailer, 16rem x 16rem"
+        />
       </div>
+      <Footer />
     </main>
   );
 }

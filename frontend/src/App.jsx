@@ -1,4 +1,5 @@
 import "./Styles/App.scss";
+import "./Styles/PageFilms.scss";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
@@ -22,14 +23,11 @@ function App() {
       });
   }, []);
 
-  <PageFilm api={api} />;
-
   return (
     <div>
       <NavBar />
       <div className="global-container">
         <FilmOfDay />
-
         <MoovieCard api={api} key={api.id} />
       </div>
       <Footer />
