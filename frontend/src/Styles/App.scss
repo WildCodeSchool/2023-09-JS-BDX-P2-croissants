@@ -13,7 +13,6 @@ $img-width: 150px;
 body {
   position: relative;
   min-height: 100vh;
-  padding-bottom: calc(var(--footer-height) + 30px);
   background-image: url(../assets/ciel.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -30,8 +29,6 @@ body {
 
 footer {
   background-color: $primary-color;
-  position: absolute;
-  width: 97%;
   height: 3.125rem;
   left: 0;
   bottom: 0;
@@ -39,8 +36,8 @@ footer {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin: 15px;
   border-radius: 10px;
+  margin: 15px;
 }
 
 .sw {
