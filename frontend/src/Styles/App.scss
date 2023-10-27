@@ -92,25 +92,6 @@ footer {
   width: $img-width;
 }
 
-#pageFilm {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-#img-film-container {
-  width: 18rem;
-  height: 15rem;
-  background-color: lightgoldenrodyellow;
-}
-
-#trailer-container {
-  width: 18rem;
-  height: 15rem;
-  background-color: lightgoldenrodyellow;
-}
-
 .fleche-top {
   position: fixed;
   bottom: 1rem;

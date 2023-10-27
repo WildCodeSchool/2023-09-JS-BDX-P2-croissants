@@ -1,4 +1,3 @@
-import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import "../Styles/Quizz.scss";
@@ -46,5 +45,8 @@ function Quizz() {
     </div>
   );
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c697f4c676f1f6acc0583a5e673aac8c6910ec24
 export default Quizz;

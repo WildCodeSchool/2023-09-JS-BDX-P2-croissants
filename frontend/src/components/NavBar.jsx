@@ -3,14 +3,15 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../src/Styles/NavBar.scss";
+import "../Styles/NavBar.scss";
+import logo from "../assets/logo.png";
 
 function NavBar() {
   return (
     <Navbar expand="md" className="navbar-custom" fixed="top">
       <Container fluid>
         <Navbar.Brand href="#">
-          <img src="src/assets/logo.png" alt="logo" className="logo-img" />
+          <img src={logo} alt="logo" className="logo-img" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
