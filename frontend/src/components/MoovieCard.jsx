@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function MoovieCard({ movies }) {
+function MoovieCard({ api }) {
   return (
     <div className="moovie-container">
-      {movies.map((moovie) => (
+      {api.map((moovie) => (
         <Link
           key={moovie.id}
           className="moovie-div"
@@ -21,7 +21,7 @@ function MoovieCard({ movies }) {
 }
 
 MoovieCard.propTypes = {
-  movies: PropTypes.arrayOf(
+  api: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
@@ -37,10 +37,7 @@ MoovieCard.propTypes = {
       url: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
     }).isRequired
-  ),
+  ).isRequired,
 };
 
-MoovieCard.defaultProps = {
-  movies: [],
-};
 export default MoovieCard;

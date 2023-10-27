@@ -1,0 +1,60 @@
+.noUi-handle {
+  width: 12px; /* Circle diameter */
+  height: 12px; /* Circle diameter */
+  border-radius: 12px; /* Making the handle circular */
+  background: #007bff; /* Blue color */
+  box-shadow: none; /* Removing default shadow */
+  top: -4px; /* Adjusting position to center on the slider */
+  border: none; /* Removing default border */
+  cursor: pointer;
+}
+
+.noUi-target {
+  background: #e0e0e0; /* Neutral color for the slider */
+  height: 8px; /* Thinner height for the slider */
+  border-radius: 2px; /* Rounded corners */
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.noUi-tooltip {
+  display: none; /* Tooltip is hidden by default */
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  font-size: 12px;
+}
+
+.ui-slider {
+  width: 100%;
+}
+
+.noUi-connect {
+  background: #6093ff; /* Blue color */
+}
+
+.title {
+  margin-top: 20px; /* Espace de 20 pixels en bas du h3 */
+  font-size: 15px;
+}
+
+@media screen and (min-width: 760px) {
+  .ui-slider {
+    width: 410px;
+  }
+
+  .noUi-tooltip {
+    display: none; /* Tooltip is hidden by default */
+    padding: 4px;
+    border-radius: 4px;
+    background-color: #333;
+    color: #fff;
+    font-size: 12px;
+  }
+
+  .title {
+    margin-top: 20px; /* Espace de 20 pixels en bas du h3 */
+    font-size: 20px;
+  }
+}

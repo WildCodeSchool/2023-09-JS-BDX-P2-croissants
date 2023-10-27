@@ -1,6 +1,9 @@
+import NavBar from "../components/NavBar";
+
 function About() {
   return (
     <div>
+      <NavBar />
       <div className="container-History">
         <p>
           Le Studio Ghibli Inc. est un studio d'animation japonais fondé par

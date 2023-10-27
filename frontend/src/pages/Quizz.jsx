@@ -3,13 +3,38 @@ import Footer from "../components/Footer";
 import "../Styles/Quizz.scss";
 
 function Quizz() {
+  const theQuizz = [
+    {
+      question: "",
+      answers: [
+        {
+          answer: "",
+          valide: true,
+        },
+        {
+          answer: "",
+          valide: false,
+        },
+        {
+          answer: "",
+          valide: false,
+        },
+        {
+          answer: "",
+          valide: false,
+        },
+      ],
+    },
+  ];
+  alert(theQuizz);
+
   return (
     <div className="quizz-container">
       <NavBar />
       <div className="quizz-div-global">
         <h1>THIS IS THE QUIZZ</h1>
-        <div className="quizz-div" style={{ display: "flex" }}>
-          question
+        <h2>Question</h2>
+        <div className="quizz-div">
           <div>zaeazreaz</div>
           <div>dzadsqdfq</div>
           <div>ezaes</div>
@@ -20,4 +45,5 @@ function Quizz() {
     </div>
   );
 }
+
 export default Quizz;
