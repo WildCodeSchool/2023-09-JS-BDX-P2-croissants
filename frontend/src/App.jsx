@@ -1,24 +1,25 @@
-import "./App.scss";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import "./Styles/App.scss";
+import "./Styles/PageFilms.scss";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import FilmOfDay from "./components/FilmOfDay";
 import MoovieCard from "./components/MoovieCard";
 import Filter from "./components/Filter";
+import FilmOfDay from "./components/FilmOfDay";
+import BackToTopButton from "./components/BackToTopButton";
 
 function App() {
-  const [allMovies, setAllMovies] = useState([]);
+  const [api, setApi] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     axios
       .get(`https://ghibliapi.vercel.app/films/`)
-      .then((response) => {
-        const movies = response.data;
-        setAllMovies(movies);
-        setFilteredMovies(movies);
+      .then(({ data }) => {
+        setApi(data);
+        setFilteredMovies(data);
       })
       .catch((error) => {
         console.error("Erreur lors de la récupération des films:", error);
@@ -27,11 +28,11 @@ function App() {
 
   useEffect(() => {
     // Filtrer les films lorsque le terme de recherche change
-    const filtered = allMovies.filter((movie) =>
+    const filtered = api.filter((movie) =>
       movie.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredMovies(filtered);
-  }, [searchTerm, allMovies]);
+  }, [searchTerm, api]);
 
   return (
     <div>
@@ -40,12 +41,13 @@ function App() {
         <FilmOfDay />
         <Filter
           setFilteredMovies={setFilteredMovies}
-          allMovies={allMovies}
+          allMovies={api}
           searchTerms={searchTerm}
         />
-        <MoovieCard movies={filteredMovies} />
+        <MoovieCard api={api} />
       </div>
       <Footer />
+      <BackToTopButton />
     </div>
   );
 }

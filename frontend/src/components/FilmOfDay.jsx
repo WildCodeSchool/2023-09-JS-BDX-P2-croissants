@@ -62,5 +62,4 @@ const FilmOfDay = () => {
   );
 };
 
-
 export default FilmOfDay;

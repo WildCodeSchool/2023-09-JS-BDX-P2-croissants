@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import noUiSlider from "nouislider";
 import wNumb from "wnumb";
 import "nouislider/dist/nouislider.css";
-import "../styles/slider.scss";
+import "../Styles/slider.scss";
 
 function DateYearPicker() {
   const sliderRef = useRef(null);

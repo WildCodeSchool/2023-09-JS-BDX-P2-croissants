@@ -1,22 +1,27 @@
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function MoovieCard({ movies }) {
+function MoovieCard({ api }) {
   return (
     <div className="moovie-container">
-      {movies.map((moovie) => (
-        <div key={moovie.id} className="moovie-div">
+      {api.map((moovie) => (
+        <Link
+          key={moovie.id}
+          className="moovie-div"
+          to={`/thisMoovie/${moovie.title}`}
+        >
           <img className="moovie-img" src={moovie.image} alt={moovie.title} />
           <h3 className="moovie-h3">{moovie.title}</h3>
           <p>{moovie.release_date}</p>
-          <div>⭐ {moovie.rt_score}</div>
-        </div>
+          <div>⭐ : {moovie.rt_score}</div>
+        </Link>
       ))}
     </div>
   );
 }
 
 MoovieCard.propTypes = {
-  movies: PropTypes.arrayOf(
+  api: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
@@ -36,7 +41,7 @@ MoovieCard.propTypes = {
 };
 
 MoovieCard.defaultProps = {
-  movies: [],
+  api: [],
 };
 
 export default MoovieCard;
