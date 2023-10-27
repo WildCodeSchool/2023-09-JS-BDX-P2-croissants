@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get(`https://ghibliapi.vercel.app/films/`)
+      .get(`https://ghibliapi.vercel.app/films`)
       .then(({ data }) => {
         setApi(data);
         setFilteredMovies(data);
@@ -44,7 +44,7 @@ function App() {
           allMovies={api}
           searchTerms={searchTerm}
         />
-        <MoovieCard api={api} key={api.id} />
+        <MoovieCard api={filteredMovies} />
       </div>
       <Footer />
       <BackToTopButton />
