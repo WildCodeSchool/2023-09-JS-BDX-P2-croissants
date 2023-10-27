@@ -27,7 +27,7 @@ function App() {
       <NavBar />
       <div className="global-container">
         <FilmOfDay />
-        <MoovieCard api={api} key={api.id} />
+        <MoovieCard movies={api} key={api.id} />
       </div>
       <Footer />
       <BackToTopButton />

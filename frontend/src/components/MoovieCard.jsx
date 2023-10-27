@@ -37,10 +37,7 @@ MoovieCard.propTypes = {
       url: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
     }).isRequired
-  ),
+  ).isRequired,
 };
 
-MoovieCard.defaultProps = {
-  movies: [],
-};
 export default MoovieCard;
