@@ -44,7 +44,7 @@ function App() {
           allMovies={api}
           searchTerms={searchTerm}
         />
-        <MoovieCard api={api} />
+        <MoovieCard api={api} key={api.id} />
       </div>
       <Footer />
       <BackToTopButton />
