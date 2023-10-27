@@ -1,6 +1,5 @@
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import "../Styles/Quizz.scss";
 
 function Quizz() {
   const theQuizz = [
@@ -26,7 +25,7 @@ function Quizz() {
       ],
     },
   ];
-  alert(theQuizz);
+  console.error(theQuizz);
 
   return (
     <div className="quizz-container">

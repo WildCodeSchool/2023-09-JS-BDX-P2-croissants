@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./Styles/App.scss";
-import "./Styles/PageFilms.scss";
+import "./Styles/index.scss";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import MoovieCard from "./components/MoovieCard";
