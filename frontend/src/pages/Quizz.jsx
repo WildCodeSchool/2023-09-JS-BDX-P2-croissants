@@ -28,16 +28,18 @@ function Quizz() {
   console.error(theQuizz);
 
   return (
-    <div className="quizz-container">
-      <NavBar />
-      <div className="quizz-div-global">
-        <h1>THIS IS THE QUIZZ</h1>
-        <h2>Question</h2>
-        <div className="quizz-div">
-          <div>zaeazreaz</div>
-          <div>dzadsqdfq</div>
-          <div>ezaes</div>
-          <div>ezaeazd</div>
+    <div>
+      <div className="quizz-container">
+        <NavBar />
+        <div className="quizz-div-global">
+          <h1>THIS IS THE QUIZZ</h1>
+          <h2>Question</h2>
+          <div className="quizz-div">
+            <div>zaeazreaz</div>
+            <div>dzadsqdfq</div>
+            <div>ezaes</div>
+            <div>ezaeazd</div>
+          </div>
         </div>
       </div>
       <Footer />
