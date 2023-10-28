@@ -1,5 +1,3 @@
-$primary-color: #eaeaea;
-
 .navbar-custom {
   background-color: $primary-color !important;
   width: calc(
@@ -7,20 +5,19 @@ $primary-color: #eaeaea;
   ); /* Réduire la largeur de la navbar en ajoutant des marges sur les côtés */
   border-radius: 0.625rem;
   margin: 0.938rem;
-}
 
-.logo-img {
-  max-height: 2.5rem;
-  max-width: 8.125rem;
+  .logo-img {
+    max-height: 2.5rem;
+    max-width: 8.125rem;
+  }
+  .search-input {
+    border-radius: 0.938rem;
+    border: 1px solid #ced4da;
+  }
 }
 
 .nav-link:hover {
   color: white;
-}
-
-.search-input {
-  border-radius: 0.938rem;
-  border: 1px solid #ced4da;
 }
 
 @media (max-width: 760px) {

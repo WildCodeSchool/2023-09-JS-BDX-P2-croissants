@@ -1,7 +1,6 @@
 import { useState } from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
-import "../Styles/Quizz.scss";
 
 function Quizz() {
   const theQuizz = [
@@ -114,28 +113,29 @@ function Quizz() {
       ],
     },
   ];
-
   const [count, setCount] = useState(0);
-
+  const score = () => {
+    if (count === 5) {
+      alert("5/5");
+    } else if (count === 4) {
+      alert("4/5");
+    } else if (count === 3) {
+      alert("3/5");
+    } else if (count === 2) {
+      alert("2/5");
+    } else if (count === 1) {
+      alert("1/5");
+    } else {
+      alert("0/5");
+    }
+  };
   const handleClickQuizz = (e) => {
     const selectedAnswer = e.target.value;
     if (theQuizz[count].answers[selectedAnswer].valide) {
       if (count + 1 < theQuizz.length) {
         setCount(count + 1);
       } else {
-        if (count === 5) {
-          alert("5/5");
-        } else if (count === 4) {
-          alert("4/5");
-        } else if (count === 3) {
-          alert("3/5");
-        } else if (count === 2) {
-          alert("2/5");
-        } else if (count === 1) {
-          alert("1/5");
-        } else {
-          alert("0/5");
-        };
+        score();
       }
     }
   };
@@ -150,7 +150,9 @@ function Quizz() {
         <h2>{theQuizz[count].question}</h2>
         <div className="quizz-div">
           {theQuizz[count].answers.map((x) => (
-            <div onClick={handleClickQuizz}>{x.answer}</div>
+            <button type="button" onClick={handleClickQuizz}>
+              {x.answer}
+            </button>
           ))}
         </div>
       </div>
@@ -158,4 +160,5 @@ function Quizz() {
     </div>
   );
 }
+
 export default Quizz;

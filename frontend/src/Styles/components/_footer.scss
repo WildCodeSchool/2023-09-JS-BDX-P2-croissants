@@ -1,0 +1,27 @@
+footer {
+  background-color: $primary-color;
+  height: 3.125rem;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 15px;
+}
+@media screen and (min-width: 760px) {
+  footer {
+    position: absolute;
+    bottom: -110px;
+    justify-content: space-evenly;
+    height: 6.25rem;
+    width: 98%;
+  }
+
+  footer button {
+    display: block;
+    max-width: 20%;
+    padding: 0.313rem;
+  }
+}

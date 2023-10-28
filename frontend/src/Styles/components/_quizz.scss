@@ -1,0 +1,23 @@
+.quizz-container {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+
+  .quizz-div-global {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .quizz-div {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    text-align: center;
+    div {
+      flex: 0 0 calc(50% - 10px);
+    }
+  }
+}
