@@ -28,20 +28,25 @@
 
 .ui-slider {
   width: 100%;
+
+  .title {
+    margin-top: 20px; /* Espace de 20 pixels en bas du h3 */
+    font-size: 15px;
+  }
 }
 
 .noUi-connect {
   background: #6093ff; /* Blue color */
 }
 
-.title {
-  margin-top: 20px; /* Espace de 20 pixels en bas du h3 */
-  font-size: 15px;
-}
-
 @media screen and (min-width: 760px) {
   .ui-slider {
     width: 410px;
+
+    .title {
+      margin-top: 20px; /* Espace de 20 pixels en bas du h3 */
+      font-size: 20px;
+    }
   }
 
   .noUi-tooltip {
@@ -51,10 +56,5 @@
     background-color: #333;
     color: #fff;
     font-size: 12px;
-  }
-
-  .title {
-    margin-top: 20px; /* Espace de 20 pixels en bas du h3 */
-    font-size: 20px;
   }
 }

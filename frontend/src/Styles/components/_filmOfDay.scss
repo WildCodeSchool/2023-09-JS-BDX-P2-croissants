@@ -1,0 +1,13 @@
+.sw {
+  margin: 16vh auto 8vh auto;
+  max-width: 80%;
+
+  .img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px;
+  }
+}
