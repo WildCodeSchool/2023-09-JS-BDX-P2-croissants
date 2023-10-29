@@ -40,8 +40,12 @@ function NavBar({ searchTerm, setSearchTerm }) {
 }
 
 NavBar.propTypes = {
-  searchTerm: PropTypes.string.isRequired,
+  searchTerm: PropTypes.string,
   setSearchTerm: PropTypes.func.isRequired,
+};
+
+NavBar.defaultProps = {
+  searchTerm: "",
 };
 
 export default NavBar;

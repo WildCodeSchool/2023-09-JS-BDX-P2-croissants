@@ -96,10 +96,16 @@ function Filter({ setFilteredMovies, allMovies, searchTerms }) {
       </div>
       <div className="filter-title">
         <div className="filter-range">
-          <DateYearPicker />
+          <DateYearPicker
+            setFilteredMovies={setFilteredMovies}
+            allMovies={allMovies}
+          />
 
           <div className="filter-star">
-            <StarPicker />
+            <StarPicker
+              setFilteredMovies={setFilteredMovies}
+              allMovies={allMovies}
+            />
           </div>
         </div>
         <div className="filter-director">
