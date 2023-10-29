@@ -5,11 +5,19 @@ export const FilterContext = createContext({
   // This is the default value of the context
   searchTerm: "",
   setSearchTerm: () => {},
-  selectedYears: [],
+  selectedYears: [1986, 2021],
   setSelectedYears: () => {},
-  selectedStar: [],
+  selectedStar: [30, 100],
   setSelectedStar: () => {},
-  directors: {},
+  directors: {
+    "Hayao Miyazaki": false,
+    "Isao Takahata": false,
+    "Yoshifumi Kondō": false,
+    "Hiroyuki Morita": false,
+    "Gorō Miyazaki": false,
+    "Hiromasa Yonebayashi": false,
+    "Michaël Dudok de Wit": false,
+  },
   setDirectors: () => {},
 });
 
@@ -28,9 +36,9 @@ function FilterContextProvider({ children }) {
     "Michaël Dudok de Wit": false,
   });
 
-  const context = useMemo(
+  const context = useMemo(() => {
     // This is the context that will be used in this component
-    {
+    return {
       searchTerm,
       setSearchTerm,
       selectedYears,
@@ -39,9 +47,8 @@ function FilterContextProvider({ children }) {
       setSelectedStar,
       directors,
       setDirectors,
-    },
-    [searchTerm, selectedYears, selectedStar, directors]
-  );
+    };
+  }, [searchTerm, selectedYears, selectedStar, directors]);
 
   return (
     <FilterContext.Provider value={context}>{children}</FilterContext.Provider>

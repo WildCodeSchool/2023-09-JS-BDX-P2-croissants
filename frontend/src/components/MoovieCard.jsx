@@ -32,7 +32,6 @@ function MoovieCard({ api }) {
         .filter((moovie) => {
           const selectedDirectors = Object.keys(directors).filter(
             // On récupère les réalisateurs sélectionnés
-            // On récupère les réalisateurs sélectionnés
             (director) => directors[director]
           );
           return (
@@ -41,7 +40,7 @@ function MoovieCard({ api }) {
           );
         })
     );
-  }, [searchTerm, selectedStar, selectedYears, directors]);
+  }, [searchTerm, selectedStar, selectedYears, directors, api]);
 
   return (
     <div className="moovie-container">
