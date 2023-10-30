@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import noUiSlider from "nouislider";
 import wNumb from "wnumb";
 import "nouislider/dist/nouislider.css";
-import "../Styles/slider.scss";
 
 function DateYearPicker() {
   const sliderRef = useRef(null);
@@ -54,7 +53,6 @@ function DateYearPicker() {
 
   return (
     <div className="ui-slider">
-      <div ref={sliderRef}></div>
       <div className="title from-year">
         Selected Years: {selectedYears[0]} - {selectedYears[1]}
       </div>
