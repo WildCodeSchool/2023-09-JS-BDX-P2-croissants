@@ -43,6 +43,7 @@ function App() {
           allMovies={api}
           searchTerms={searchTerm}
         />
+
         <MoovieCard api={filteredMovies} />
       </div>
       <Footer />

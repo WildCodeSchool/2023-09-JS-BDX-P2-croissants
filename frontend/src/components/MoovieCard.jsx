@@ -1,21 +1,37 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useState } from "react";
 
 function MoovieCard({ api }) {
+  const [rangeValue, setRangeValue] = useState(20);
   return (
     <div className="moovie-container">
-      {api.map((moovie) => (
-        <Link
-          key={moovie.id}
-          className="moovie-div"
-          to={`/thisMoovie/${moovie.title}`}
-        >
-          <img className="moovie-img" src={moovie.image} alt={moovie.title} />
-          <h3 className="moovie-h3">{moovie.title}</h3>
-          <p>{moovie.release_date}</p>
-          <div>⭐ {moovie.rt_score} / 100</div>
-        </Link>
-      ))}
+      <div className="inputRange">
+        <p> Filtre Nombre films</p>
+        <span>{rangeValue}</span>
+        <input
+          id="input"
+          type="range"
+          min="0"
+          max="22"
+          defaultValue={rangeValue}
+          onChange={(e) => setRangeValue(e.target.value)}
+        />
+      </div>
+      <div className="api">
+        {api.slice(0, rangeValue).map((moovie) => (
+          <Link
+            key={moovie.id}
+            className="moovie-div"
+            to={`/thisMoovie/${moovie.title}`}
+          >
+            <img className="moovie-img" src={moovie.image} alt={moovie.title} />
+            <h3 className="moovie-h3">{moovie.title}</h3>
+            <p>{moovie.release_date}</p>
+            <div>⭐ {moovie.rt_score} / 100</div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
