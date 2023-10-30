@@ -1,8 +1,6 @@
 footer {
   background-color: $primary-color;
   height: 3.125rem;
-  left: 0;
-  bottom: 0;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -12,10 +10,8 @@ footer {
 }
 @media screen and (min-width: 760px) {
   footer {
-    bottom: -110px;
     justify-content: space-evenly;
     height: 6.25rem;
-    width: 98%;
   }
 
   footer button {
