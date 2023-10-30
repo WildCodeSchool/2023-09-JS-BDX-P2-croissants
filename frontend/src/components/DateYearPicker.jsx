@@ -1,12 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import noUiSlider from "nouislider";
 import wNumb from "wnumb";
 import "nouislider/dist/nouislider.css";
-import "../Styles/slider.scss";
+import { FilterContext } from "../context/FilterContext";
+import "../Styles/components/_slider.scss";
 
 function DateYearPicker() {
   const sliderRef = useRef(null);
-  const [selectedYears, setSelectedYears] = useState([1986, 2021]);
+  const { selectedYears, setSelectedYears } = useContext(FilterContext); // This is the context that will be used in this component
 
   useEffect(() => {
     if (sliderRef.current) {
@@ -23,14 +24,16 @@ function DateYearPicker() {
       slider.on("start", () => {
         const tooltips = sliderRef.current.querySelectorAll(".noUi-tooltip");
         tooltips.forEach((tooltip) => {
-          tooltip.style.display = "block";
+          const newTooltip = tooltip;
+          newTooltip.style.display = "block";
         });
       });
 
       slider.on("end", () => {
         const tooltips = sliderRef.current.querySelectorAll(".noUi-tooltip");
         tooltips.forEach((tooltip) => {
-          tooltip.style.display = "none";
+          const newTooltip = tooltip;
+          newTooltip.style.display = "none";
         });
       });
 
@@ -41,7 +44,8 @@ function DateYearPicker() {
 
       const tooltips = sliderRef.current.querySelectorAll(".noUi-tooltip");
       tooltips.forEach((tooltip) => {
-        tooltip.style.display = "none";
+        const newTooltip = tooltip;
+        newTooltip.style.display = "none";
       });
     }
 
@@ -54,7 +58,7 @@ function DateYearPicker() {
 
   return (
     <div className="ui-slider">
-      <div ref={sliderRef}></div>
+      <div ref={sliderRef} />
       <div className="title from-year">
         Selected Years: {selectedYears[0]} - {selectedYears[1]}
       </div>

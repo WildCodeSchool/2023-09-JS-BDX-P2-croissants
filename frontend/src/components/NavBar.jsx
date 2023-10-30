@@ -1,13 +1,15 @@
-import PropTypes from "prop-types";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { FilterContext } from "../context/FilterContext";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../Styles/NavBar.scss";
 import logo from "../assets/logo.png";
 
-function NavBar({ searchTerm, setSearchTerm }) {
+function NavBar() {
+  const { searchTerm, setSearchTerm } = useContext(FilterContext); // This is the context that will be used in this component
+
   return (
     <Navbar expand="md" className="navbar-custom" fixed="top">
       <Container fluid>
@@ -38,10 +40,5 @@ function NavBar({ searchTerm, setSearchTerm }) {
     </Navbar>
   );
 }
-
-NavBar.propTypes = {
-  searchTerm: PropTypes.string.isRequired,
-  setSearchTerm: PropTypes.func.isRequired,
-};
 
 export default NavBar;
