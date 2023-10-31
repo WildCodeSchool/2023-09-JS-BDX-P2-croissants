@@ -1,0 +1,43 @@
+#pageFilm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  #img-film-container {
+    display: flex;
+    margin-top: 8rem;
+    width: 18rem;
+    border: 2px solid #eaeaea;
+    border-radius: 2rem;
+
+    #img-film {
+      width: 100%;
+      border-radius: 2rem;
+    }
+  }
+
+  #movie-title-page {
+    display: flex;
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  #synopsis-container {
+    background-color: #ced4da;
+    padding: 1rem;
+    border-radius: 2rem;
+    margin: 0 20rem;
+  }
+
+  #trailer-container {
+    width: 18rem;
+    height: 15rem;
+    margin-top: 2rem;
+
+    #img-trailer {
+      width: 100%;
+      border-radius: 2rem;
+    }
+  }
+}

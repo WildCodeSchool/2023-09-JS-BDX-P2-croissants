@@ -23,7 +23,7 @@ function BackToTopButton() {
   return (
     <div>
       {backToTopButton && (
-        <button className="fleche-top" onClick={scrollUp}>
+        <button type="button" className="fleche-top" onClick={scrollUp}>
           <img
             className="img-fleche-top"
             src="../src/assets/fleche-vers-le-haut-sur-un-fond-de-cercle-noir.png"

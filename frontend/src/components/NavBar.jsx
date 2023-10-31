@@ -1,12 +1,15 @@
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { FilterContext } from "../context/FilterContext";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../src/Styles/NavBar.scss";
 import logo from "../assets/logo.png";
 
 function NavBar() {
+  const { searchTerm, setSearchTerm } = useContext(FilterContext); // This is the context that will be used in this component
+
   return (
     <Navbar expand="md" className="navbar-custom" fixed="top">
       <Container fluid>
@@ -26,6 +29,10 @@ function NavBar() {
               placeholder="Rechercher"
               className="me-2 search-input"
               aria-label="Search"
+              value={searchTerm}
+              onChange={(event) => {
+                setSearchTerm(event.target.value);
+              }}
             />
           </Form>
         </Navbar.Collapse>
