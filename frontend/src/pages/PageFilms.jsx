@@ -7,17 +7,22 @@ import Footer from "../components/Footer";
 function PageFilm() {
   const [api, setApi] = useState([]);
   const [thisMoovie, setThisMoovie] = useState();
+  const [people, setPeople] = useState();
 
   useEffect(() => {
     axios
       .get("https://ghibliapi.vercel.app/films")
-      .then(({ data }) => {
+      .then(async ({ data }) => {
+        const peopleData = await Promise.all(
+          data[0].people.map((url) => axios.get(url))
+        );
+        setPeople(peopleData);
+
         setApi(data);
       })
       .catch(() => {
-        alert("erreur");
+        console.error("erreur");
       });
-    console.log(api);
   }, []);
 
   const { moovieId } = useParams();
@@ -43,7 +48,11 @@ function PageFilm() {
       <div id="more-infos">
         <h4>Director: {thisMoovie?.director}</h4>
         <h5>Producer: {thisMoovie?.producer}</h5>
-        <h6></h6>
+        <h6>
+          {people?.map((element) => {
+            return element.data.name;
+          })}
+        </h6>
       </div>
       <div id="trailer-container">
         <img
@@ -56,4 +65,5 @@ function PageFilm() {
     </main>
   );
 }
+
 export default PageFilm;
