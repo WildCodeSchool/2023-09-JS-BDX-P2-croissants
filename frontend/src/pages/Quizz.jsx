@@ -114,33 +114,32 @@ function Quizz() {
     },
   ];
   const [count, setCount] = useState(0);
-  const score = () => {
-    if (count === 5) {
-      alert("5/5");
-    } else if (count === 4) {
-      alert("4/5");
-    } else if (count === 3) {
-      alert("3/5");
-    } else if (count === 2) {
-      alert("2/5");
-    } else if (count === 1) {
-      alert("1/5");
-    } else {
-      alert("0/5");
-    }
-  };
-  const handleClickQuizz = (e) => {
-    const selectedAnswer = e.target.value;
-    if (theQuizz[count].answers[selectedAnswer].valide) {
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [theScore, setTheScore] = useState(0);
+
+  const handleClickQuizz = (valide) => {
+    if (valide) {
       if (count + 1 < theQuizz.length) {
-        setCount(count + 1);
-      } else {
-        score();
+        setTheScore(theScore + 1);
+        if (count + 1 < theQuizz.length) {
+          setCount(count + 1);
+          setSelectedAnswer(null);
+        }
       }
     }
   };
 
-  console.error(theQuizz);
+  const isFalse = () => {
+    if (count + 1 < theQuizz.length) {
+      setCount(count + 1);
+      setSelectedAnswer(null);
+    }
+  };
+
+  const reset = () => {
+    setCount(count * 0);
+    setTheScore(theScore * 0);
+  };
 
   return (
     <div className="quizz-container">
@@ -150,11 +149,31 @@ function Quizz() {
         <h2>{theQuizz[count].question}</h2>
         <div className="quizz-div">
           {theQuizz[count].answers.map((x) => (
-            <button type="button" onClick={handleClickQuizz}>
-              {x.answer}
-            </button>
+            <div>
+              <button type="button" onClick={() => setSelectedAnswer(x.valide)}>
+                {x.answer}
+              </button>
+            </div>
           ))}
         </div>
+        {selectedAnswer !== null && count <= 4 && (
+          <button
+            type="button"
+            className="button-next"
+            onClick={
+              selectedAnswer
+                ? () => handleClickQuizz(selectedAnswer)
+                : () => isFalse()
+            }
+            disabled={count >= 5 ? "disabled" : ""}
+          >
+            Valide
+          </button>
+        )}
+        <button type="button" onClick={() => reset()}>
+          Reset
+        </button>
+        <h3>{theScore}/5</h3>
       </div>
       <Footer />
     </div>
