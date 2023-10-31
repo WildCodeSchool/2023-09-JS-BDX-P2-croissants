@@ -8,6 +8,7 @@ import Filter from "./components/Filter";
 import FilmOfDay from "./components/FilmOfDay";
 import BackToTopButton from "./components/BackToTopButton";
 import FilterContextProvider from "./context/FilterContext";
+import SkyAnimation from "./components/SkyAnimation";
 
 function App() {
   const [api, setApi] = useState([]); // La liste des films
@@ -48,6 +49,7 @@ function App() {
           <FilmOfDay />
           <Filter />
           <MoovieCard api={api} />
+          <SkyAnimation />
         </div>
         <Footer />
         <BackToTopButton />
