@@ -57,6 +57,20 @@ function FilmOfDay() {
             alt=""
           />
         </SwiperSlide>
+        <SwiperSlide>
+          <img
+            className="img"
+            src="https://www.studioghibli.fr/wp-content/uploads/2023/10/garcon-et-le-heron-bande-annonce-francaise.jpg"
+            alt=""
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            className="img"
+            src="https://www.studioghibli.fr/wp-content/uploads/2023/10/affiche-garcon-et-heron.jpg"
+            alt=""
+          />
+        </SwiperSlide>
       </Swiper>
     </div>
   );
