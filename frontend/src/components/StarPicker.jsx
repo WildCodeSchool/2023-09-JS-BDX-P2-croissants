@@ -1,11 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import noUiSlider from "nouislider";
 import wNumb from "wnumb";
+import { FilterContext } from "../context/FilterContext";
 import "nouislider/dist/nouislider.css";
 
 function StarPicker() {
   const sliderRef = useRef(null);
-  const [selectedStar, setSelectedStar] = useState([30, 100]);
+  const { selectedStar, setSelectedStar } = useContext(FilterContext); // This is the context that will be used in this component
 
   useEffect(() => {
     if (sliderRef.current) {
@@ -22,14 +23,16 @@ function StarPicker() {
       slider.on("start", () => {
         const tooltips = sliderRef.current.querySelectorAll(".noUi-tooltip");
         tooltips.forEach((tooltip) => {
-          tooltip.style.display = "block";
+          const newTooltip = tooltip;
+          newTooltip.style.display = "block";
         });
       });
 
       slider.on("end", () => {
         const tooltips = sliderRef.current.querySelectorAll(".noUi-tooltip");
         tooltips.forEach((tooltip) => {
-          tooltip.style.display = "none";
+          const newTooltip = tooltip;
+          newTooltip.style.display = "none";
         });
       });
 
@@ -40,7 +43,8 @@ function StarPicker() {
 
       const tooltips = sliderRef.current.querySelectorAll(".noUi-tooltip");
       tooltips.forEach((tooltip) => {
-        tooltip.style.display = "none";
+        const newTooltip = tooltip;
+        newTooltip.style.display = "none";
       });
     }
 
@@ -53,7 +57,7 @@ function StarPicker() {
 
   return (
     <div className="ui-slider">
-      <div ref={sliderRef}></div>
+      <div ref={sliderRef} />
       <div className="title">
         Selected Stars: {selectedStar[0]} - {selectedStar[1]}
       </div>

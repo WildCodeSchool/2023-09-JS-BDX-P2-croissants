@@ -119,26 +119,27 @@ function Quizz() {
 
   const handleClickQuizz = (valide) => {
     if (valide) {
-      if (count + 1 < theQuizz.length) {
+      if (count < theQuizz.length) {
         setTheScore(theScore + 1);
-        if (count + 1 < theQuizz.length) {
-          setCount(count + 1);
+        setCount(count + 1);
+        if (count < theQuizz.length) {
           setSelectedAnswer(null);
+          setCount(count + 1);
         }
       }
     }
   };
 
   const isFalse = () => {
-    if (count + 1 < theQuizz.length) {
+    if (count < theQuizz.length) {
       setCount(count + 1);
       setSelectedAnswer(null);
     }
   };
 
   const reset = () => {
-    setCount(count * 0);
-    setTheScore(theScore * 0);
+    setCount(0);
+    setTheScore(0);
   };
 
   return (
@@ -146,9 +147,9 @@ function Quizz() {
       <NavBar />
       <div className="quizz-div-global">
         <h1>THIS IS THE QUIZZ</h1>
-        <h2>{theQuizz[count].question}</h2>
+        <h2>{theQuizz[count]?.question}</h2>
         <div className="quizz-div">
-          {theQuizz[count].answers.map((x) => (
+          {theQuizz[count]?.answers.map((x) => (
             <div>
               <button type="button" onClick={() => setSelectedAnswer(x.valide)}>
                 {x.answer}
@@ -156,7 +157,8 @@ function Quizz() {
             </div>
           ))}
         </div>
-        {selectedAnswer !== null && count <= 4 && (
+
+        {selectedAnswer !== null && count <= 5 && (
           <button
             type="button"
             className="button-next"

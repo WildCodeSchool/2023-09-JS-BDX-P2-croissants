@@ -13,10 +13,17 @@ $img-width: 150px;
 
 body {
   position: relative;
-  min-height: 100vh;
-  background-image: url(../assets/ciel.png);
+  height: 100vh;
+  background-attachment: fixed;
+  background-image: url(../assets/ciel4.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: top center;
   overflow-x: hidden;
-  min-width: 500px;
+  width: 100vw;
+}
+
+@media screen and (min-width: 900px) {
+  body {
+    background-size: cover;
+  }
 }
