@@ -50,6 +50,10 @@ function App() {
           <Filter />
           <MoovieCard api={api} />
           <SkyAnimation />
+          <audio controls autoPlay>
+            <track kind="captions" />
+            <source src="src/assets/son.mp3" type="audio/mpeg" />
+          </audio>
         </div>
         <Footer />
         <BackToTopButton />
