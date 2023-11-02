@@ -148,15 +148,22 @@ function Quizz() {
       <div className="quizz-div-global">
         <h1>THIS IS THE QUIZZ</h1>
         <h2>{theQuizz[count]?.question}</h2>
-        <div className="quizz-div">
-          {theQuizz[count]?.answers.map((x) => (
-            <div>
-              <button type="button" onClick={() => setSelectedAnswer(x.valide)}>
-                {x.answer}
-              </button>
-            </div>
-          ))}
-        </div>
+        {count >= 5 ? (
+          <h2>Bravo le 100</h2>
+        ) : (
+          <div className="quizz-div">
+            {theQuizz[count]?.answers.map((x) => (
+              <div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedAnswer(x.valide)}
+                >
+                  {x.answer}
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
 
         {selectedAnswer !== null && count <= 5 && (
           <button
