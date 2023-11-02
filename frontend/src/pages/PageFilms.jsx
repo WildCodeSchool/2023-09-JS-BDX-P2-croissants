@@ -44,15 +44,20 @@ function PageFilm() {
         {thisMoovie?.original_title_romanised} <br />
         {thisMoovie?.original_title}
       </h2>
-      <div id="synopsis-container">{thisMoovie?.description}</div>
-      <div id="more-infos">
-        <h4>Director: {thisMoovie?.director}</h4>
-        <h5>Producer: {thisMoovie?.producer}</h5>
-        <h6>
-          {people?.map((element) => {
-            return element.data.name;
-          })}
-        </h6>
+      <div className="synopsis-infos">
+        {thisMoovie?.description}
+        <div id="more-infos">
+          <h4>Director: {thisMoovie?.director}</h4>
+          <h5>Producer: {thisMoovie?.producer}</h5>
+          <h6>Characters:</h6>
+          <p className="characters">
+            {people
+              ?.map((element) => {
+                return element.data.name;
+              })
+              .join(", ")}
+          </p>
+        </div>
       </div>
       <div id="trailer-container">
         <img
