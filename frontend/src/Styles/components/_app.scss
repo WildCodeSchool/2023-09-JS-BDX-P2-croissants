@@ -11,6 +11,7 @@
   height: 50px;
   position: absolute;
   right: 20px;
+  top: 100px;
   z-index: 2;
   background: none;
   border: none;
@@ -44,11 +45,11 @@
     display: inline;
   }
   .img-son {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     position: absolute;
-    top: 80px;
-    right: 20px;
+    right: 30px;
+    top: -20px;
     z-index: 2;
   }
 }

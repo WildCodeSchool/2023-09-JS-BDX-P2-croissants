@@ -1,5 +1,6 @@
 footer {
   background-color: $primary-color;
+  position: relative;
   height: 3.125rem;
   display: flex;
   align-items: center;
@@ -7,6 +8,7 @@ footer {
   justify-content: center;
   border-radius: 10px;
   margin: 15px;
+  z-index: 2;
 }
 @media screen and (min-width: 760px) {
   footer {
