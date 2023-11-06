@@ -1,6 +1,8 @@
 .sw {
   margin: 16vh auto 8vh auto;
   max-width: 80%;
+  position: relative;
+  z-index: 2;
 
   .img {
     width: 100%;

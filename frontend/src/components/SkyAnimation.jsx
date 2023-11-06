@@ -25,6 +25,11 @@ function SkyAnimation() {
       />
       <img
         src="src/assets/nuage1.png"
+        alt="Sprite 5"
+        className="sprite sprite5"
+      />
+      <img
+        src="src/assets/nuage1.png"
         alt="Sprite diagonal 1"
         className="sprite dsprite dsprite1"
       />

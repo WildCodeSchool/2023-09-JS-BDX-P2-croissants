@@ -3,29 +3,41 @@
   height: 150px;
   width: 250px;
   animation-name: moveDiagonally;
-  animation-duration: 10s;
+  animation-duration: 15s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  z-index: 1;
 }
 .sprite1 {
   left: 0%;
   bottom: 0%;
   animation-name: moveDiagonally1;
+  animation-duration: 8s;
 }
 .sprite2 {
   left: 20%;
   bottom: 0%;
   animation-name: moveDiagonally2;
+  animation-duration: 10s;
 }
 .sprite3 {
   left: 40%;
   bottom: 0%;
   animation-name: moveDiagonally3;
+  animation-duration: 16s;
 }
 .sprite4 {
   left: 60%;
   bottom: 0%;
   animation-name: moveDiagonally4;
+  animation-duration: 20s;
+}
+
+.sprite5 {
+  left: 80%;
+  bottom: 0%;
+  animation-name: moveDiagonally1;
+  animation-duration: 30s;
 }
 .dsprite {
   left: 0;
@@ -33,10 +45,12 @@
 .dsprite1 {
   bottom: 20%;
   animation-name: moveFromLeft1;
+  animation-duration: 10s;
 }
 .dsprite2 {
   bottom: 40%;
   animation-name: moveFromLeft2;
+  animation-duration: 13s;
 }
 .dsprite3 {
   bottom: 60%;
@@ -45,6 +59,7 @@
 .dsprite4 {
   bottom: 80%;
   animation-name: moveFromLeft4;
+  animation-duration: 20s;
 }
 @keyframes moveDiagonally1 {
   0% {

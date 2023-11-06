@@ -46,6 +46,7 @@ function App() {
       <div>
         <NavBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
         <div className="global-container">
+          "
           <FilmOfDay />
           <Filter />
           <MoovieCard api={api} />
