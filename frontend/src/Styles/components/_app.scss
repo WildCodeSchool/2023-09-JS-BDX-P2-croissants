@@ -6,6 +6,21 @@
   margin-bottom: 100px;
 }
 
+.button-son {
+  width: 70px;
+  height: 50px;
+  position: absolute;
+  right: 20px;
+  z-index: 2;
+  background: none;
+  border: none;
+}
+
+.img-son {
+  width: 50px;
+  height: 50px;
+}
+
 .fleche-top {
   position: fixed;
   bottom: 8rem;
@@ -27,5 +42,13 @@
 
   .input {
     display: inline;
+  }
+  .img-son {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    z-index: 2;
   }
 }
