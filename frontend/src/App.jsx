@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "./Styles/index.scss";
 import NavBar from "./components/NavBar";
@@ -13,6 +13,8 @@ import SkyAnimation from "./components/SkyAnimation";
 function App() {
   const [api, setApi] = useState([]); // La liste des films
   const [searchTerm, setSearchTerm] = useState(""); // La recherche
+  const [isPlaying, setIsPlaying] = useState(false); // Le son
+  const audioRef = useRef(null);
 
   useEffect(() => {
     axios
@@ -41,17 +43,43 @@ function App() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const togglePlay = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
   return (
     <FilterContextProvider>
       <div>
         <NavBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
         <div className="global-container">
           "
+          <button
+            className="button-son"
+            type="button"
+            onClick={togglePlay}
+            aria-pressed={isPlaying}
+            title="Contrôler le son"
+          >
+            <img
+              className="img-son"
+              src={
+                isPlaying
+                  ? "src/assets/volume-up.svg"
+                  : "src/assets/volume-mute.svg"
+              }
+              alt={isPlaying ? "Désactiver le son" : "Activer le son"}
+            />
+          </button>
           <FilmOfDay />
           <Filter />
           <MoovieCard api={api} />
           <SkyAnimation />
-          <audio controls autoPlay>
+          <audio ref={audioRef} autoPlay>
             <track kind="captions" />
             <source src="src/assets/son.mp3" type="audio/mpeg" />
           </audio>
