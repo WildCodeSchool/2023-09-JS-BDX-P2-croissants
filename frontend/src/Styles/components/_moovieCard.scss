@@ -7,6 +7,8 @@
   gap: 20px;
   border-radius: 25px;
   background-color: rgba(128, 128, 128, 0.356);
+  position: relative;
+  z-index: 2;
 
   .moovie-div {
     text-align: center;
@@ -20,6 +22,7 @@
     background-color: #eaeaea53;
     border-radius: 25px;
     margin-bottom: 25px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.548);
   }
 
   .moovie-img {
