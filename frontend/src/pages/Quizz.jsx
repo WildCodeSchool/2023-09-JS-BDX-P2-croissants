@@ -117,6 +117,11 @@ function Quizz() {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [theScore, setTheScore] = useState(0);
 
+  const endCondition = () => (count >= 5 ? <h2>Bravo le 100</h2> : null);
+  const handleClickSelectAnswer = (index) => {
+    setSelectedAnswer(index);
+  };
+
   const handleClickQuizz = (valide) => {
     if (valide) {
       if (count < theQuizz.length) {
@@ -148,11 +153,17 @@ function Quizz() {
       <div className="quizz-div-global">
         <h1>THIS IS THE QUIZZ</h1>
         <h2>{theQuizz[count]?.question}</h2>
+        {endCondition()}
         <div className="quizz-div">
-          {theQuizz[count]?.answers.map((x) => (
+          {theQuizz[count]?.answers.map((answer, index) => (
             <div>
-              <button type="button" onClick={() => setSelectedAnswer(x.valide)}>
-                {x.answer}
+              <button
+                key={index}
+                type="button"
+                onClick={() => handleClickSelectAnswer(index)}
+                className={selectedAnswer === index ? "anime-button" : ""}
+              >
+                {answer.answer}
               </button>
             </div>
           ))}
@@ -163,8 +174,8 @@ function Quizz() {
             type="button"
             className="button-next"
             onClick={
-              selectedAnswer
-                ? () => handleClickQuizz(selectedAnswer)
+              theQuizz[count]?.answers[selectedAnswer]?.valide
+                ? () => handleClickQuizz(true)
                 : () => isFalse()
             }
             disabled={count >= 5 ? "disabled" : ""}
