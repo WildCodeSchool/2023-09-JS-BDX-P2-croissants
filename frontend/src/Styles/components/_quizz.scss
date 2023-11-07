@@ -54,8 +54,20 @@
         transition: transform 0.3s;
         border-radius: 10px;
       }
-      button:hover {
-        transform: scale(1.2);
+      .anime-button {
+        animation: heartbeat 1s infinite;
+      }
+
+      @keyframes heartbeat {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
       }
     }
   }
