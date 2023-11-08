@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         element: <Quizz />,
       },
       {
-        path: "/thisMoovie/:moovieId",
+        path: "/thisMovie/:movieId",
         element: <PageFilm />,
       },
     ],

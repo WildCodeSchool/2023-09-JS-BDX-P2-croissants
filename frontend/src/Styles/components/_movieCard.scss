@@ -1,4 +1,4 @@
-.moovie-container {
+.movie-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -10,7 +10,7 @@
   position: relative;
   z-index: 2;
 
-  .moovie-div {
+  .movie-div {
     text-align: center;
     display: flex;
     flex-wrap: wrap;
@@ -25,13 +25,13 @@
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.548);
   }
 
-  .moovie-img {
+  .movie-img {
     border-radius: 25px;
     padding-top: 10px;
     width: $img-width;
   }
 
-  .moovie-h3 {
+  .movie-h3 {
     padding: 10px 5px 5px 5px;
     font-size: 1.1rem;
   }

@@ -4,18 +4,18 @@ import { useApi } from "../context/ApiContext";
 
 function PageFilm() {
   const { api } = useApi();
-  const [thisMoovie, setThisMoovie] = useState();
-  const { moovieId } = useParams();
+  const [thisMovie, setThisMovie] = useState();
+  const { movieId } = useParams();
   const [characters, setCharacters] = useState([]);
   useEffect(() => {
-    setThisMoovie(api.find((moovie) => moovie.title === moovieId));
+    setThisMovie(api.find((movie) => movie.title === movieId));
   }, [api]);
 
   useEffect(() => {
-    if (thisMoovie) {
+    if (thisMovie) {
       const fetchNames = async () => {
         const names = await Promise.all(
-          thisMoovie?.people.map((url) =>
+          thisMovie?.people.map((url) =>
             fetch(url).then((response) =>
               response.json().then((data) => data.name)
             )
@@ -25,7 +25,7 @@ function PageFilm() {
       };
       fetchNames();
     }
-  }, [thisMoovie]);
+  }, [thisMovie]);
 
   useEffect(() => {}, [characters]);
 
@@ -35,20 +35,20 @@ function PageFilm() {
         <div id="img-film-container">
           <img
             id="img-film"
-            src={thisMoovie?.image}
+            src={thisMovie?.image}
             alt="img du film, 16rem x 16rem"
           />
         </div>
 
         <div className="synopsis-infos">
           <h2 id="movie-title-page">
-            {thisMoovie?.original_title_romanised} <br />
-            {thisMoovie?.original_title}
+            {thisMovie?.original_title_romanised} <br />
+            {thisMovie?.original_title}
           </h2>
-          {thisMoovie?.description}
+          {thisMovie?.description}
           <div id="more-infos">
-            <h4>Director: {thisMoovie?.director}</h4>
-            <h5>Producer: {thisMoovie?.producer}</h5>
+            <h4>Director: {thisMovie?.director}</h4>
+            <h5>Producer: {thisMovie?.producer}</h5>
             <h6>
               Characters:
               {characters.map((character) => (
@@ -61,7 +61,7 @@ function PageFilm() {
       <div id="trailer-container">
         <img
           id="img-trailer"
-          src={thisMoovie?.movie_banner}
+          src={thisMovie?.movie_banner}
           alt="trailer, 16rem x 16rem"
         />
       </div>
