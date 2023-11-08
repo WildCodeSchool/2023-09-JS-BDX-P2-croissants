@@ -1,30 +1,10 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import { useApi } from "../context/ApiContext";
 
 function PageFilm() {
-  const [api, setApi] = useState([]);
+  const { api } = useApi();
   const [thisMoovie, setThisMoovie] = useState();
-  const [people, setPeople] = useState();
-
-  useEffect(() => {
-    axios
-      .get("https://ghibliapi.vercel.app/films")
-      .then(async ({ data }) => {
-        const peopleData = await Promise.all(
-          data[0].people.map((url) => axios.get(url))
-        );
-        setPeople(peopleData);
-
-        setApi(data);
-      })
-      .catch(() => {
-        console.error("erreur");
-      });
-  }, []);
-
   const { moovieId } = useParams();
   useEffect(() => {
     setThisMoovie(api.find((moovie) => moovie.title === moovieId));
@@ -32,7 +12,6 @@ function PageFilm() {
 
   return (
     <main id="pageFilm">
-      <NavBar />
       <div id="img-film-container">
         <img
           id="img-film"
@@ -50,13 +29,7 @@ function PageFilm() {
           <h4>Director: {thisMoovie?.director}</h4>
           <h5>Producer: {thisMoovie?.producer}</h5>
           <h6>Characters:</h6>
-          <p className="characters">
-            {people
-              ?.map((element) => {
-                return element.data.name;
-              })
-              .join(", ")}
-          </p>
+          <p className="characters">Biloute</p>
         </div>
       </div>
       <div id="trailer-container">
@@ -66,7 +39,6 @@ function PageFilm() {
           alt="trailer, 16rem x 16rem"
         />
       </div>
-      <Footer />
     </main>
   );
 }
