@@ -1,16 +1,13 @@
-import { useEffect, useState, useRef, useContext } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./Styles/index.scss";
-import NavBar from "./components/NavBar";
 import MovieCard from "./components/MovieCard";
 import Filter from "./components/Filter";
 import FilmOfDay from "./components/FilmOfDay";
 import BackToTopButton from "./components/BackToTopButton";
-import FilterContextProvider, { FilterContext } from "./context/FilterContext";
 
 import SkyAnimation from "./components/SkyAnimation";
 
 function App() {
-  const { searchTerm, setSearchTerm } = useContext(FilterContext); // La recherche
   const [isPlaying, setIsPlaying] = useState(false); // Le son
   const audioRef = useRef(null);
 
@@ -40,41 +37,38 @@ function App() {
   };
 
   return (
-    <FilterContextProvider>
-      <div>
-        <NavBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
-        <div className="global-container">
-          "
-          <button
-            className="button-son"
-            type="button"
-            onClick={togglePlay}
-            aria-pressed={isPlaying}
-            title="Contrôler le son"
-          >
-            <img
-              className="img-son"
-              src={
-                isPlaying
-                  ? "src/assets/volume-up.svg"
-                  : "src/assets/volume-mute.svg"
-              }
-              alt={isPlaying ? "Désactiver le son" : "Activer le son"}
-            />
-          </button>
-          <FilmOfDay />
-          <Filter />
-          <MovieCard />
-          <SkyAnimation />
-          <audio ref={audioRef}>
-            <track kind="captions" />
-            <source src="src/assets/son.mp3" type="audio/mpeg" />
-          </audio>
-        </div>
-
-        <BackToTopButton />
+    <div>
+      <div className="global-container">
+        "
+        <button
+          className="button-son"
+          type="button"
+          onClick={togglePlay}
+          aria-pressed={isPlaying}
+          title="Contrôler le son"
+        >
+          <img
+            className="img-son"
+            src={
+              isPlaying
+                ? "src/assets/volume-up.svg"
+                : "src/assets/volume-mute.svg"
+            }
+            alt={isPlaying ? "Désactiver le son" : "Activer le son"}
+          />
+        </button>
+        <FilmOfDay />
+        <Filter />
+        <MovieCard />
+        <SkyAnimation />
+        <audio ref={audioRef}>
+          <track kind="captions" />
+          <source src="src/assets/son.mp3" type="audio/mpeg" />
+        </audio>
       </div>
-    </FilterContextProvider>
+
+      <BackToTopButton />
+    </div>
   );
 }
 
