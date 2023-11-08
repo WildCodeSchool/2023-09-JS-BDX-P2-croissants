@@ -6,9 +6,28 @@ function PageFilm() {
   const { api } = useApi();
   const [thisMoovie, setThisMoovie] = useState();
   const { moovieId } = useParams();
+  const [characters, setCharacters] = useState([]);
   useEffect(() => {
     setThisMoovie(api.find((moovie) => moovie.title === moovieId));
   }, [api]);
+
+  useEffect(() => {
+    if (thisMoovie) {
+      const fetchNames = async () => {
+        const names = await Promise.all(
+          thisMoovie?.people.map((url) =>
+            fetch(url).then((response) =>
+              response.json().then((data) => data.name)
+            )
+          )
+        );
+        setCharacters(names);
+      };
+      fetchNames();
+    }
+  }, [thisMoovie]);
+
+  useEffect(() => {}, [characters]);
 
   return (
     <main id="pageFilm">
@@ -29,7 +48,9 @@ function PageFilm() {
           <h4>Director: {thisMoovie?.director}</h4>
           <h5>Producer: {thisMoovie?.producer}</h5>
           <h6>Characters:</h6>
-          <p className="characters">Biloute</p>
+          {characters.map((character) => (
+            <p className="characters">{character}</p>
+          ))}
         </div>
       </div>
       <div id="trailer-container">
