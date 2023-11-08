@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, useContext } from "react";
 import "./Styles/index.scss";
 import NavBar from "./components/NavBar";
-import MoovieCard from "./components/MoovieCard";
+import MovieCard from "./components/MovieCard";
 import Filter from "./components/Filter";
 import FilmOfDay from "./components/FilmOfDay";
 import BackToTopButton from "./components/BackToTopButton";
@@ -64,7 +64,7 @@ function App() {
           </button>
           <FilmOfDay />
           <Filter />
-          <MoovieCard />
+          <MovieCard />
           <SkyAnimation />
           <audio ref={audioRef}>
             <track kind="captions" />
