@@ -1,13 +1,12 @@
 #pageFilm {
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
 #img-film-container {
   display: flex;
-  margin-top: 8rem;
+
   width: 18rem;
   border: 2px solid #eaeaea;
   border-radius: 2rem;
@@ -23,11 +22,15 @@
   margin: 1rem 0;
 }
 
+.img-desc {
+  display: flex;
+  margin: 0 2rem;
+}
+
 .synopsis-infos {
   background-color: #ced4da;
   padding: 1rem;
   border-radius: 2rem;
-  margin: 0 10rem;
 }
 
 #trailer-container {
@@ -40,8 +43,11 @@
   border-radius: 2rem;
 }
 
-#more-infos {
-  margin: 2rem 0;
+h6 {
+  display: flex;
+}
+p {
+  margin: 0 1rem;
 }
 
 @media screen and (max-width: 770px) {
