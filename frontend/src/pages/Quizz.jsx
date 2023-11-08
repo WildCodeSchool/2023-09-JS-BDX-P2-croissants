@@ -1,6 +1,5 @@
 import { useState } from "react";
 import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 
 function Quizz() {
   const theQuizz = [
@@ -177,7 +176,6 @@ function Quizz() {
         </button>
         <h3>{theScore}/5</h3>
       </div>
-      <Footer />
     </div>
   );
 }

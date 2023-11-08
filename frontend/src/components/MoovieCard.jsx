@@ -1,13 +1,14 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import { useApi } from "../context/ApiContext";
+
 import { FilterContext } from "../context/FilterContext";
 
-function MoovieCard({ api }) {
+function MoovieCard() {
+  const { api } = useApi();
   const [selectedMoovie, setSelectedMoovie] = useState(api); // Les films triés par les filtres
   const { searchTerm, selectedYears, selectedStar, directors } =
     useContext(FilterContext); // This is the context that will be used in this component
-
   useEffect(() => {
     setSelectedMoovie(
       api
@@ -59,25 +60,5 @@ function MoovieCard({ api }) {
     </div>
   );
 }
-
-MoovieCard.propTypes = {
-  api: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      director: PropTypes.string.isRequired,
-      producer: PropTypes.string.isRequired,
-      release_date: PropTypes.string.isRequired,
-      rt_score: PropTypes.string.isRequired,
-      people: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-      species: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-      locations: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-      vehicles: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-      url: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
-};
 
 export default MoovieCard;
