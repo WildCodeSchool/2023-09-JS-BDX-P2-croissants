@@ -8,13 +8,14 @@ const dbStock = require("./db.json");
 
 const dbStockArray = [dbStock];
 
-app.use(cors());
+app.use(cors({}));
 
 app.get("/", (req, res) => {
   res.send(dbStockArray);
 });
 
 app.post("/", (req) => {
+  console.info(req.body);
   const postData = req.body;
   dbStockArray.push(postData);
 });
