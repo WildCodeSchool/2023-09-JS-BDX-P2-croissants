@@ -14,11 +14,11 @@ app.get("/", (req, res) => {
   res.send(dbStockArray);
 });
 
-app.post("/", (req, res) => {
+app.post("/", (req) => {
   const postData = req.body;
   dbStockArray.push(postData);
 });
 
 app.listen(port, () => {
-  console.log(`Le serveur Express écoute sur le port ${port}`);
+  console.warn(`Le serveur Express écoute sur le port ${port}`);
 });
