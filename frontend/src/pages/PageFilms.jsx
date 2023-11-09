@@ -6,30 +6,50 @@ function PageFilm() {
   const { api } = useApi();
   const [thisMovie, setThisMovie] = useState();
   const { movieId } = useParams();
+  const [characters, setCharacters] = useState([]);
   useEffect(() => {
     setThisMovie(api.find((movie) => movie.title === movieId));
   }, [api]);
 
+  useEffect(() => {
+    if (thisMovie) {
+      const fetchNames = async () => {
+        const names = await Promise.all(
+          thisMovie?.people.map((url) =>
+            fetch(url).then((response) =>
+              response.json().then((data) => data.name)
+            )
+          )
+        );
+        setCharacters(names);
+      };
+      fetchNames();
+    }
+  }, [thisMovie]);
+
+  useEffect(() => {}, [characters]);
+
   return (
     <main id="pageFilm">
-      <div id="img-film-container">
-        <img
-          id="img-film"
-          src={thisMovie?.image}
-          alt="img du film, 16rem x 16rem"
-        />
-      </div>
-      <h2 id="movie-title-page">
-        {thisMovie?.original_title_romanised} <br />
-        {thisMovie?.original_title}
-      </h2>
-      <div className="synopsis-infos">
-        {thisMovie?.description}
-        <div id="more-infos">
-          <h4>Director: {thisMovie?.director}</h4>
-          <h5>Producer: {thisMovie?.producer}</h5>
-          <h6>Characters:</h6>
-          <p className="characters">Biloute</p>
+      <div className="img-desc">
+        <div id="img-film-container">
+          <img
+            id="img-film"
+            src={thisMovie?.image}
+            alt="img du film, 16rem x 16rem"
+          />
+        </div>
+
+        <div className="synopsis-infos">
+          <h2 id="movie-title-page">
+            {thisMovie?.original_title_romanised} <br />
+            {thisMovie?.original_title}
+          </h2>
+          <div className="description">{thisMovie?.description}</div>
+          <div id="more-infos">
+            <h4>Director: {thisMovie?.director}</h4>
+            <h5>Producer: {thisMovie?.producer}</h5>
+          </div>
         </div>
       </div>
       <div id="trailer-container">
@@ -38,6 +58,14 @@ function PageFilm() {
           src={thisMovie?.movie_banner}
           alt="trailer, 16rem x 16rem"
         />
+        <div className="container-characters">
+          <h6>Characters:</h6>
+          <div className="characters">
+            {characters.map((character) => (
+              <li>{character}</li>
+            ))}
+          </div>
+        </div>
       </div>
     </main>
   );
