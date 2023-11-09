@@ -78,7 +78,6 @@ function About() {
   };
   return (
     <div className="container">
-      <NavBar />
       <div className="container-history">
         <h2>HISTORIQUE:</h2>
         <p>
