@@ -1,6 +1,6 @@
 #pageFilm {
   padding: 10px;
-  margin: 0 30%;
+  margin: 2rem;
   min-height: 300px;
   background-color: rgba(128, 128, 128, 0.356);
   border-radius: 20px;
@@ -10,15 +10,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: 500px;
+    margin: 2rem;
 
     #img-film-container {
-      max-width: 50%;
+      display: flex;
+      justify-content: center;
 
       #img-film {
         border-radius: 20px;
-        width: 373px;
-        min-height: 495px;
-        object-fit: cover;
+        width: 30rem;
+        min-height: 30rem;
+        background-image: cover;
       }
     }
     .synopsis-infos {
@@ -58,8 +60,12 @@
   #trailer-container {
     margin: 5px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     min-height: 200px;
+
+    .iframe {
+      border-radius: 20px;
+    }
 
     img {
       width: 373px;
