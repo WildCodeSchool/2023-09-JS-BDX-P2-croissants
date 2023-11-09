@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import NavBar from "../components/NavBar";
 
 function About() {
   // const [name, setName] = useState("");
@@ -10,6 +9,7 @@ function About() {
     name: "",
     content: "",
   });
+  console.info(api);
   const history = [
     {
       id: 0,
@@ -111,13 +111,12 @@ function About() {
     e.preventDefault();
     axios
       .post("http://localhost:3000", { post })
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
+      .then((response) => console.info(response))
+      .catch((error) => console.error(error));
   };
 
   return (
     <div className="container">
-      <NavBar />
       <button type="button">test</button>
       <div className="container-history">
         <h2>HISTORIQUE:</h2>

@@ -1,7 +1,7 @@
 .sprite {
   position: fixed;
-  height: 150px;
-  width: 250px;
+  height: 100px;
+  width: 200px;
   animation-name: moveDiagonally;
   animation-duration: 15s;
   animation-timing-function: linear;
@@ -125,5 +125,12 @@
   }
   100% {
     transform: translate(calc(40vw - 80px), calc(-40vh + 80px));
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .sprite {
+    height: 150px;
+    width: 250px;
   }
 }

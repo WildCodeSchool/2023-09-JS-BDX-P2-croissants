@@ -1,6 +1,5 @@
 import { useState } from "react";
 import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 
 function Quizz() {
   const theQuizz = [
@@ -158,7 +157,7 @@ function Quizz() {
           {theQuizz[count]?.answers.map((answer, index) => (
             <div>
               <button
-                key={index}
+                key={{ index }}
                 type="button"
                 onClick={() => handleClickSelectAnswer(index)}
                 className={selectedAnswer === index ? "anime-button" : ""}
@@ -188,7 +187,6 @@ function Quizz() {
         </button>
         <h3>{theScore}/5</h3>
       </div>
-      <Footer />
     </div>
   );
 }

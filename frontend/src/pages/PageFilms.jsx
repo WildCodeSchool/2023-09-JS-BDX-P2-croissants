@@ -1,67 +1,72 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import { useApi } from "../context/ApiContext";
 
 function PageFilm() {
-  const [api, setApi] = useState([]);
-  const [thisMoovie, setThisMoovie] = useState();
-  const [people, setPeople] = useState();
-
+  const { api } = useApi();
+  const [thisMovie, setThisMovie] = useState();
+  const { movieId } = useParams();
+  const [characters, setCharacters] = useState([]);
   useEffect(() => {
-    axios
-      .get("https://ghibliapi.vercel.app/films")
-      .then(async ({ data }) => {
-        const peopleData = await Promise.all(
-          data[0].people.map((url) => axios.get(url))
-        );
-        setPeople(peopleData);
-
-        setApi(data);
-      })
-      .catch(() => {
-        console.error("erreur");
-      });
-  }, []);
-
-  const { moovieId } = useParams();
-  useEffect(() => {
-    setThisMoovie(api.find((moovie) => moovie.title === moovieId));
+    setThisMovie(api.find((movie) => movie.title === movieId));
   }, [api]);
+
+  useEffect(() => {
+    if (thisMovie) {
+      const fetchNames = async () => {
+        const names = await Promise.all(
+          thisMovie?.people.map((url) =>
+            fetch(url).then((response) =>
+              response.json().then((data) => data.name)
+            )
+          )
+        );
+        setCharacters(names);
+      };
+      fetchNames();
+    }
+  }, [thisMovie]);
+
+  useEffect(() => {}, [characters]);
 
   return (
     <main id="pageFilm">
-      <NavBar />
-      <div id="img-film-container">
-        <img
-          id="img-film"
-          src={thisMoovie?.image}
-          alt="img du film, 16rem x 16rem"
-        />
-      </div>
-      <h2 id="movie-title-page">
-        {thisMoovie?.original_title_romanised} <br />
-        {thisMoovie?.original_title}
-      </h2>
-      <div id="synopsis-container">{thisMoovie?.description}</div>
-      <div id="more-infos">
-        <h4>Director: {thisMoovie?.director}</h4>
-        <h5>Producer: {thisMoovie?.producer}</h5>
-        <h6>
-          {people?.map((element) => {
-            return element.data.name;
-          })}
-        </h6>
+      <div className="img-desc">
+        <div id="img-film-container">
+          <img
+            id="img-film"
+            src={thisMovie?.image}
+            alt="img du film, 16rem x 16rem"
+          />
+        </div>
+
+        <div className="synopsis-infos">
+          <h2 id="movie-title-page">
+            {thisMovie?.original_title_romanised} <br />
+            {thisMovie?.original_title}
+          </h2>
+          <div className="description">{thisMovie?.description}</div>
+          <div id="more-infos">
+            <h4>Director: {thisMovie?.director}</h4>
+            <h5>Producer: {thisMovie?.producer}</h5>
+          </div>
+        </div>
       </div>
       <div id="trailer-container">
         <img
           id="img-trailer"
-          src={thisMoovie?.movie_banner}
+          src={thisMovie?.movie_banner}
           alt="trailer, 16rem x 16rem"
         />
+        <div className="container-characters">
+          <h6>Characters:</h6>
+          <div className="characters">
+            {characters.map((character) => (
+              <li>{character}</li>
+            ))}
+          </div>
+        </div>
       </div>
-      <Footer />
     </main>
   );
 }
