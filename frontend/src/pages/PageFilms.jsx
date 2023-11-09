@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useApi } from "../context/ApiContext";
-import trailers from "../data/trailers.jsx";
+import trailers from "../data/trailers";
 
 function PageFilm() {
   const { api } = useApi();
@@ -51,7 +51,7 @@ function PageFilm() {
             {thisMovie?.original_title_romanised} <br />
             {thisMovie?.original_title}
           </h2>
-          {thisMovie?.description}
+          <div className="description">{thisMovie?.description}</div>
           <div id="more-infos">
             <h4>Director: {thisMovie?.director}</h4>
             <h5>Producer: {thisMovie?.producer}</h5>
