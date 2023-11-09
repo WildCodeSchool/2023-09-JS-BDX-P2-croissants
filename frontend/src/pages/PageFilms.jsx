@@ -49,12 +49,10 @@ function PageFilm() {
           <div id="more-infos">
             <h4>Director: {thisMovie?.director}</h4>
             <h5>Producer: {thisMovie?.producer}</h5>
-            <h6>
-              Characters:
-              {characters.map((character) => (
-                <p className="characters">{character}</p>
-              ))}
-            </h6>
+            <h6>Characters:</h6>
+            {characters.map((character) => (
+              <p className="characters">{character}</p>
+            ))}
           </div>
         </div>
       </div>
