@@ -11,7 +11,8 @@ function GlobalApp() {
     <ApiProvider>
       <FilterContextProvider>
         <NavBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
-        <main>
+
+        <main className="global-container">
           <Outlet />
         </main>
         <Footer />
