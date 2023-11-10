@@ -62,6 +62,8 @@
       button {
         display: flex;
         align-items: center;
+        flex-direction: column;
+        justify-content: center;
         height: 80px;
         width: 180px;
         padding: 25px 50px;
