@@ -39,7 +39,6 @@ function App() {
   return (
     <div>
       <div className="global-container">
-        "
         <button
           className="button-son"
           type="button"

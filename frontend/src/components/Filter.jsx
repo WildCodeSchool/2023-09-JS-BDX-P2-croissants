@@ -5,6 +5,7 @@ import StarPicker from "./StarPicker";
 
 function Filter() {
   const { directors, setDirectors } = useContext(FilterContext); // This is the context that will be used in this component
+  const { searchTerm } = useContext(FilterContext); // This is the context that will be used in this component
 
   // Gestionnaire pour les changements des cases à cocher
   const handleCheckboxChange = (event) => {
@@ -19,7 +20,7 @@ function Filter() {
   };
 
   return (
-    <div className="container-filter">
+    <div className={searchTerm !== "" ? "invisible" : "container-filter"}>
       <div className="fil-title">
         <h2>Filters</h2>
       </div>
