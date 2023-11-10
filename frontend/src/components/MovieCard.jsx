@@ -55,6 +55,7 @@ function MovieCard() {
           <h3 className="movie-h3">{movie.title}</h3>
           <p>{movie.release_date}</p>
           <div>⭐ {movie.rt_score} / 100</div>
+          <img className="heart" src="src/assets/Favorite.png" alt="" />
         </Link>
       ))}
     </div>

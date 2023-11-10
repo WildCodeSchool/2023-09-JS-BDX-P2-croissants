@@ -51,23 +51,14 @@ h4 {
 }
 
 @media screen and (min-width: 770px) {
-  main {
-    display: flex;
-    justify-content: center;
-  }
-
-  .characters {
-    margin: 0;
-  }
-
   #pageFilm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 10px;
     margin: 2rem;
-    width: 60rem;
     min-height: 300px;
-    background-color: rgba(128, 128, 128, 0.356);
-    border-radius: 20px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.548);
 
     .img-desc {
       display: grid;
@@ -75,77 +66,72 @@ h4 {
       min-height: 500px;
       margin: 2rem;
 
-      #img-film-container {
-        display: flex;
-        justify-content: center;
-
-        #img-film {
-          border-radius: 20px;
-          width: 20rem;
-          height: 28rem;
-          background-image: cover;
-        }
+      #img-film {
+        height: 28rem;
+        background-image: cover;
       }
-      .synopsis-infos {
-        padding: 20px;
-        width: 95%;
-        min-height: 300px;
+    }
+    .synopsis-infos {
+      padding: 20px;
+      width: 95%;
+      min-height: 300px;
 
-        h2 {
-          font-size: 1.3rem;
-          margin-bottom: 10px;
-        }
+      h2 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+      }
 
-        .description {
+      .description {
+        margin-bottom: 20px;
+        min-height: 100px;
+        line-height: 20px;
+        padding: 10px;
+      }
+      #more-infos {
+        min-height: 100px;
+
+        h4 {
+          font-size: 1.5rem;
           margin-bottom: 20px;
           min-height: 100px;
           line-height: 20px;
-        }
-        #more-infos {
-          min-height: 100px;
 
-          h4 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-          }
-          h5 {
-            font-size: 1rem;
-            margin-bottom: 20px;
-          }
-          h6 {
-            font-size: 1.2rem;
-          }
+        }
+        h5 {
+          font-size: 1rem;
+          margin-bottom: 20px;
+        }
+        h6 {
+          font-size: 1.2rem;
         }
       }
     }
-    #trailer-container {
-      margin: 5px;
+  }
+  #trailer-container {
+    margin: 5px;
+    min-height: 200px;
+
+    img {
+      width: 373px;
+      max-height: 300px;
+      border-radius: 20px;
+    }
+    .container-characters {
       display: flex;
-      justify-content: center;
-      min-height: 200px;
-
-      img {
-        width: 373px;
-        max-height: 300px;
-        border-radius: 20px;
+      flex-direction: column;
+      width: 100%;
+      h6 {
+        height: 20px;
+        padding: 0 20px;
       }
-      .container-characters {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        h6 {
-          height: 20px;
-          padding: 0 20px;
-        }
-        .characters {
-          min-height: 20px;
-          font-size: 0.9rem;
-          padding: 0 20px;
+      .characters {
+        min-height: 20px;
+        font-size: 0.9rem;
+        padding: 0 20px;
 
-          li {
-            list-style: none;
-            color: black;
-          }
+        li {
+          list-style: none;
+          color: black;
         }
       }
     }
