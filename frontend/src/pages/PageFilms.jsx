@@ -36,7 +36,7 @@ function PageFilm() {
   }, [thisMovie]);
 
   return (
-    <main id="pageFilm">
+    <div id="pageFilm">
       <div className="img-desc">
         <div id="img-film-container">
           <img
@@ -81,7 +81,7 @@ function PageFilm() {
           <p>Pas de trailer disponible pour ce film.</p>
         )}
       </div>
-    </main>
+    </div>
   );
 }
 
