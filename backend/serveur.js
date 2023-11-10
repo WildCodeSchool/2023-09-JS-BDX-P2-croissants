@@ -11,6 +11,16 @@ const dbStock = require("./db.json");
 app.use(cors({}));
 app.use(bodyParser.json());
 
+const uuidGenerator = () =>
+  "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+    // eslint-disable-next-line no-bitwise
+    const r = (Math.random() * 16) | 0;
+    // eslint-disable-next-line no-bitwise
+    const v = c === "x" ? r : (r & 0x3) | 0x8;
+
+    return v.toString(16);
+  });
+
 app.get("/", (req, res) => {
   res.send(dbStock);
 });
@@ -18,12 +28,10 @@ app.get("/", (req, res) => {
 app.post("/", async (req, res) => {
   try {
     const postData = req.body;
-    console.info("1", postData);
-    console.info("2", dbStock);
     // Ajouter les données au tableau dans la mémoire
     dbStock[0].history.unshift({
       ...postData.post,
-      id: dbStock[0].history.length + 1,
+      id: uuidGenerator(),
       date: Date.now(),
     });
     console.info(dbStock[0].history);
