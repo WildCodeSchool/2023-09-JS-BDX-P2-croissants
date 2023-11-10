@@ -1,24 +1,74 @@
 #pageFilm {
-  padding: 10px;
-  margin: 0 30%;
-  min-height: 300px;
   background-color: rgba(128, 128, 128, 0.356);
   border-radius: 20px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.548);
+  margin: 0 1rem;
+}
 
-  .img-desc {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 500px;
+#img-film {
+  margin-top: 1rem;
+  width: 20rem;
+  border-radius: 20px;
+  background-color: rgba(128, 128, 128, 0.356);
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.548);
+}
 
-    #img-film-container {
-      max-width: 50%;
+#img-film-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.synopsis-infos {
+  margin: 2rem;
+}
+
+.characters {
+  margin: 0;
+}
+
+.iframe {
+  width: 560px;
+  border-radius: 10px;
+}
+
+#trailer-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  padding-bottom: 1rem;
+}
+
+h4 {
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 900px) {
+  body {
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 770px) {
+  #pageFilm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 2rem;
+    min-height: 300px;
+
+    .img-desc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 500px;
+      margin: 2rem;
 
       #img-film {
-        border-radius: 20px;
-        width: 373px;
-        min-height: 495px;
-        object-fit: cover;
+        height: 28rem;
+        background-image: cover;
       }
     }
     .synopsis-infos {
@@ -32,7 +82,6 @@
       }
 
       .description {
-        width: 290px;
         margin-bottom: 20px;
         min-height: 100px;
         line-height: 20px;
@@ -57,8 +106,6 @@
   }
   #trailer-container {
     margin: 5px;
-    display: flex;
-    justify-content: space-between;
     min-height: 200px;
 
     img {
@@ -85,15 +132,5 @@
         }
       }
     }
-  }
-}
-
-@media screen and (max-width: 770px) {
-  #synopsis-container {
-    margin: 0 2rem;
-  }
-
-  #more-infos {
-    margin: 2rem;
   }
 }
