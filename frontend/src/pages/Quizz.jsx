@@ -158,7 +158,7 @@ function Quizz() {
                 key={{ index }}
                 type="button"
                 onClick={() => handleClickSelectAnswer(index)}
-                className={selectedAnswer === index ? "anime-button" : ""}
+                className={selectedAnswer === index ? "anime-button" : "button"}
               >
                 {answer.answer}
               </button>
@@ -180,7 +180,7 @@ function Quizz() {
             Valide
           </button>
         )}
-        <button type="button" onClick={() => reset()}>
+        <button className="reset" type="button" onClick={() => reset()}>
           Reset
         </button>
         <h3>{theScore}/5</h3>
