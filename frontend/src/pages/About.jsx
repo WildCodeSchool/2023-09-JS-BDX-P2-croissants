@@ -24,6 +24,8 @@ function About() {
       year: "numeric",
       month: "long",
       day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
     });
     return newDate;
   };
@@ -40,7 +42,6 @@ function About() {
 
   return (
     <div className="container">
-      <button type="button">test</button>
       <div className="container-history">
         <h2>HISTORIQUE:</h2>
         <p>
@@ -59,6 +60,13 @@ function About() {
       <form action="" onSubmit={handleSubmit}>
         <label htmlFor="titre">Nom </label>
         <input type="text" name="name" id="name" onChange={handleInput} />
+        <input
+          type="text"
+          name="title"
+          placeholder="Entrer un titre"
+          onChange={handleInput}
+        />
+        <input type="url" name="url" placeholder="URL" onChange={handleInput} />
         <textarea
           className="input-actuality"
           type="text"
@@ -66,22 +74,27 @@ function About() {
           placeholder="Nouveau post"
           onChange={handleInput}
         />
+
         <input type="submit" className="edit" value="Edit" />
       </form>
       <div className="container-actuality">
         <h2>ACTUALITE:</h2>
-        {api.map((list) => (
-          <ul key={list.id}>
-            <h1>{list.title}</h1>
-            <p>{list.content}</p>
-            <div className="span">
-              <span>Note : {list.star}</span>
-            </div>
-            <span>posté le: {dateFormater(list.date)}</span>
+        {api
+          // .sort((a, b) => b.date - a.date)
+          .map((list) => (
+            <ul key={list.id}>
+              <h1>{list.title}</h1>
+              <img src={list.url} alt="" />
+              <p>{list.content}</p>
+              <div className="span">
+                <span>Note : {list.star}</span>
+              </div>
+              <span>author : {list.name}</span>
+              <span>posté le: {dateFormater(list.date)}</span>
 
-            <button type="button">Supprimer</button>
-          </ul>
-        ))}
+              <button type="button">Supprimer</button>
+            </ul>
+          ))}
       </div>
     </div>
   );

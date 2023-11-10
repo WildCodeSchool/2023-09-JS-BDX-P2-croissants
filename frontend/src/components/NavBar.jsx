@@ -22,6 +22,7 @@ function NavBar() {
             <Nav.Link href="/">Accueil</Nav.Link>
             <Nav.Link href="/about">À propos</Nav.Link>
             <Nav.Link href="/quizz">Quizz</Nav.Link>
+            <Nav.Link href="/favorite">Favorite</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
