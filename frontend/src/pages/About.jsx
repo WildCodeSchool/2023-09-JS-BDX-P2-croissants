@@ -67,6 +67,7 @@ function About() {
           placeholder="Entrer un titre"
           onChange={handleInput}
         />
+        <input type="url" name="url" placeholder="URL" />
         <textarea
           className="input-actuality"
           type="text"
