@@ -2,8 +2,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 function About() {
-  // const [name, setName] = useState("");
-  // const [content, setContent] = useState("");
   const [api, setApi] = useState([]);
   const [post, setPost] = useState({
     name: "",
