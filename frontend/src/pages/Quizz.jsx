@@ -115,7 +115,7 @@ function Quizz() {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [theScore, setTheScore] = useState(0);
 
-  const endCondition = () => (count >= 5 ? <h2>Bravo le 100</h2> : null);
+  const endCondition = count >= theQuizz.length;
   const handleClickSelectAnswer = (index) => {
     setSelectedAnswer(index);
   };
@@ -149,41 +149,47 @@ function Quizz() {
     <div className="quizz-container">
       <div className="quizz-div-global">
         <h1>THIS IS THE QUIZZ</h1>
-        <h2>{theQuizz[count]?.question}</h2>
-        {endCondition()}
-        <div className="quizz-div">
-          {theQuizz[count]?.answers.map((answer, index) => (
-            <div>
-              <button
-                key={{ index }}
-                type="button"
-                onClick={() => handleClickSelectAnswer(index)}
-                className={selectedAnswer === index ? "anime-button" : "button"}
-              >
-                {answer.answer}
-              </button>
+        {endCondition ? (
+          <h2>Bravo, votre score est de {theScore}/5</h2>
+        ) : (
+          <>
+            <h2>{theQuizz[count]?.question}</h2>
+            <div className="quizz-div">
+              {theQuizz[count]?.answers.map((answer, index) => (
+                <div>
+                  <button
+                    key={{ index }}
+                    type="button"
+                    onClick={() => handleClickSelectAnswer(index)}
+                    className={
+                      selectedAnswer === index ? "anime-button" : "button"
+                    }
+                  >
+                    {answer.answer}
+                  </button>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-
-        {selectedAnswer !== null && count <= 5 && (
-          <button
-            type="button"
-            className="button-next"
-            onClick={
-              theQuizz[count]?.answers[selectedAnswer]?.valide
-                ? () => handleClickQuizz(true)
-                : () => isFalse()
-            }
-            disabled={count >= 5 ? "disabled" : ""}
-          >
-            Valide
-          </button>
+            {selectedAnswer !== null && (
+              <button
+                type="button"
+                className="button-next"
+                onClick={
+                  theQuizz[count]?.answers[selectedAnswer]?.valide
+                    ? () => handleClickQuizz(true)
+                    : () => isFalse()
+                }
+                disabled={endCondition ? "disabled" : ""}
+              >
+                Valider
+              </button>
+            )}
+          </>
         )}
         <button className="reset" type="button" onClick={() => reset()}>
           Reset
         </button>
-        <h3>{theScore}/5</h3>
+        {!endCondition && <h3>{theScore}/5</h3>}
       </div>
     </div>
   );
