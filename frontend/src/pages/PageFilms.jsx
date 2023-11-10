@@ -59,7 +59,9 @@ function PageFilm() {
               <>
                 <h6>Characters:</h6>
                 {characters.map((character) => (
-                  <p className="characters">{character}</p>
+                  <p key={character} className="characters">
+                    {character}
+                  </p>
                 ))}
               </>
             )}
