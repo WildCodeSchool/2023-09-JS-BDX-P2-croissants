@@ -24,6 +24,8 @@ function About() {
       year: "numeric",
       month: "long",
       day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
     });
     return newDate;
   };
@@ -40,7 +42,6 @@ function About() {
 
   return (
     <div className="container">
-      <button type="button">test</button>
       <div className="container-history">
         <h2>HISTORIQUE:</h2>
         <p>
@@ -65,7 +66,7 @@ function About() {
           placeholder="Entrer un titre"
           onChange={handleInput}
         />
-        <input type="url" name="url" placeholder="URL" />
+        <input type="url" name="url" placeholder="URL" onChange={handleInput} />
         <textarea
           className="input-actuality"
           type="text"
@@ -73,8 +74,7 @@ function About() {
           placeholder="Nouveau post"
           onChange={handleInput}
         />
-        {/* <input type="text" name="img" placeholder="URL" /> */}
-        {/* <input type="text" name={dateFormater} onChange={handleInput} /> */}
+
         <input type="submit" className="edit" value="Edit" />
       </form>
       <div className="container-actuality">
@@ -84,10 +84,12 @@ function About() {
           .map((list) => (
             <ul key={list.id}>
               <h1>{list.title}</h1>
+              <img src={list.url} alt="" />
               <p>{list.content}</p>
               <div className="span">
                 <span>Note : {list.star}</span>
               </div>
+              <span>author : {list.name}</span>
               <span>posté le: {dateFormater(list.date)}</span>
 
               <button type="button">Supprimer</button>
