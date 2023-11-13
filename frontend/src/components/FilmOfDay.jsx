@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, EffectCube } from "swiper/modules";
+import { FilterContext } from "../context/FilterContext";
 import "swiper/scss";
 import "swiper/scss/pagination";
 import "swiper/scss/navigation";
 import "swiper/scss/effect-cube";
 
 function FilmOfDay() {
+  const { searchTerm } = useContext(FilterContext);
   return (
-    <div className="sw">
+    <div className={searchTerm !== "" ? "invisible" : "sw"}>
       <Swiper
         effect="cube"
         grabCursor
