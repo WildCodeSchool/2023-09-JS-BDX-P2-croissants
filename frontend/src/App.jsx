@@ -38,32 +38,33 @@ function App() {
 
   return (
     <div>
-      "
-      <button
-        className="button-son"
-        type="button"
-        onClick={togglePlay}
-        aria-pressed={isPlaying}
-        title="Contrôler le son"
-      >
-        <img
-          className="img-son"
-          src={
-            isPlaying
-              ? "src/assets/volume-up.svg"
-              : "src/assets/volume-mute.svg"
-          }
-          alt={isPlaying ? "Désactiver le son" : "Activer le son"}
-        />
-      </button>
-      <FilmOfDay />
-      <Filter />
-      <MovieCard />
-      <SkyAnimation />
-      <audio ref={audioRef}>
-        <track kind="captions" />
-        <source src="src/assets/son.mp3" type="audio/mpeg" />
-      </audio>
+      <div className="global-container">
+        <button
+          className="button-son"
+          type="button"
+          onClick={togglePlay}
+          aria-pressed={isPlaying}
+          title="Contrôler le son"
+        >
+          <img
+            className="img-son"
+            src={
+              isPlaying
+                ? "src/assets/volume-up.svg"
+                : "src/assets/volume-mute.svg"
+            }
+            alt={isPlaying ? "Désactiver le son" : "Activer le son"}
+          />
+        </button>
+        <FilmOfDay />
+        <Filter />
+        <MovieCard />
+        <SkyAnimation />
+        <audio ref={audioRef}>
+          <track kind="captions" />
+          <source src="src/assets/son.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
       <BackToTopButton />
     </div>
   );
