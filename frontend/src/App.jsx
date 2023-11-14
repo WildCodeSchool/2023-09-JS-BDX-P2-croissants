@@ -65,7 +65,6 @@ function App() {
           <source src="src/assets/son.mp3" type="audio/mpeg" />
         </audio>
       </div>
-
       <BackToTopButton />
     </div>
   );

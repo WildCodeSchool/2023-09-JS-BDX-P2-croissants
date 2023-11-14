@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React, { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, EffectCube } from "swiper/modules";

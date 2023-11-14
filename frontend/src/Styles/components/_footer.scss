@@ -1,7 +1,7 @@
 footer {
   background-color: $primary-color;
   position: relative;
-  height: 3.125rem;
+  min-height: 3.125rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -9,11 +9,12 @@ footer {
   border-radius: 10px;
   margin: 15px;
   z-index: 2;
+  margin-top: auto;
 }
 @media screen and (min-width: 760px) {
   footer {
     justify-content: space-evenly;
-    height: 6.25rem;
+    min-height: 6.25rem;
   }
 
   footer button {
