@@ -25,7 +25,7 @@ const router = createBrowserRouter([
         element: <Quizz />,
       },
       {
-        path: "/favorite",
+        path: "/favorites",
         element: <Favorite />,
       },
       {

@@ -11,6 +11,16 @@ const dbStock = require("./db.json");
 app.use(cors({}));
 app.use(bodyParser.json());
 
+const uuidGenerator = () =>
+  "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+    // eslint-disable-next-line no-bitwise
+    const r = (Math.random() * 16) | 0;
+    // eslint-disable-next-line no-bitwise
+    const v = c === "x" ? r : (r & 0x3) | 0x8;
+
+    return v.toString(16);
+  });
+
 app.get("/", (req, res) => {
   res.send(dbStock);
 });
@@ -18,12 +28,10 @@ app.get("/", (req, res) => {
 app.post("/", async (req, res) => {
   try {
     const postData = req.body;
-    console.info("1", postData);
-    console.info("2", dbStock);
     // Ajouter les données au tableau dans la mémoire
     dbStock[0].history.unshift({
       ...postData.post,
-      id: dbStock[0].history.length + 1,
+      id: uuidGenerator(),
       date: Date.now(),
     });
     console.info(dbStock[0].history);
@@ -49,4 +57,27 @@ app.post("/", async (req, res) => {
 
 app.listen(port, () => {
   console.warn(`Le serveur Express écoute sur le port ${port}`);
+});
+
+app.delete("/comments/:uuid", async (req, res) => {
+  const itemId = req.params.uuid;
+
+  try {
+    // Chargez le fichier JSON actuel
+    const data = await fs.readFile("db.json", "utf8");
+    const jsonData = JSON.parse(data);
+
+    // Filtrez les éléments pour exclure celui avec l'ID à supprimer
+    jsonData[0].history = jsonData[0].history.filter(
+      (item) => item.id !== itemId
+    );
+
+    // Écrivez le fichier JSON mis à jour
+    await fs.writeFile("db.json", JSON.stringify(jsonData, null, 2));
+
+    res.json({ success: true, message: "Item deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
 });
