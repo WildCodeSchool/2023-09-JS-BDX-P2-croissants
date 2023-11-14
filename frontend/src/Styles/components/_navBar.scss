@@ -7,8 +7,21 @@
   margin: 0.938rem;
 
   .logo-img {
-    max-height: 2.5rem;
-    max-width: 8.125rem;
+    height: 4.5rem;
+    min-width: 9.125rem;
+  }
+  .me-auto {
+    margin-left: 20px;
+    min-width: 30%;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      text-decoration: none;
+      color: black;
+      font-size: 1rem;
+      margin: 10px;
+    }
   }
   .search-input {
     border-radius: 0.938rem;
@@ -24,7 +37,7 @@
   color: white;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 810px) {
   .navbar-custom .navbar-collapse {
     background-color: $primary-color;
     border-radius: 0 0 0.625rem 0.625rem;

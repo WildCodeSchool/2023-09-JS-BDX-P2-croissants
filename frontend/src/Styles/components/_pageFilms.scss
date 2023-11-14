@@ -100,8 +100,10 @@ h4 {
           font-size: 1rem;
           margin-bottom: 20px;
         }
-        h6 {
-          font-size: 1.2rem;
+        .heart {
+          width: 20px;
+          height: 20px;
+          z-index: 50;
         }
       }
     }
