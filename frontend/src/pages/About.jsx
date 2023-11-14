@@ -8,7 +8,7 @@ function About() {
     content: "",
   });
 
-  useEffect(() => {
+  const fetchMyApi = () => {
     axios
       .get(`http://localhost:3000/`)
       .then(({ data }) => {
@@ -17,7 +17,28 @@ function About() {
       .catch((error) => {
         console.error("Erreur lors de la récupération des films:", error);
       });
+  };
+  useEffect(() => {
+    fetchMyApi();
   }, []);
+  const handleDelete = async (id) => {
+    axios
+      .delete(`http://localhost:3000/comments/${id}`)
+      .then(fetchMyApi())
+      .catch((error) => console.error(error));
+  };
+
+  const handleInput = (e) => {
+    setPost({ ...post, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3000", { post })
+      .then(fetchMyApi())
+      .catch((error) => console.error(error));
+  };
 
   const dateFormater = (date) => {
     const newDate = new Date(date).toLocaleDateString("fr-FR", {
@@ -28,16 +49,6 @@ function About() {
       minute: "numeric",
     });
     return newDate;
-  };
-  const handleInput = (e) => {
-    setPost({ ...post, [e.target.name]: e.target.value });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post("http://localhost:3000", { post })
-      .then((response) => console.info(response))
-      .catch((error) => console.error(error));
   };
 
   return (
@@ -92,7 +103,9 @@ function About() {
               <span>author : {list.name}</span>
               <span>posté le: {dateFormater(list.date)}</span>
 
-              <button type="button">Supprimer</button>
+              <button type="button" onClick={() => handleDelete(list.id)}>
+                Supprimer
+              </button>
             </ul>
           ))}
       </div>
