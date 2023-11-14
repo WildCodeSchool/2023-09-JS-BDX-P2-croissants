@@ -49,6 +49,7 @@ function PageFilm() {
           <div id="more-infos">
             <h4>Director: {thisMovie?.director}</h4>
             <h5>Producer: {thisMovie?.producer}</h5>
+            <img className="heart" src="src/assets/Favorite.png" alt="" />
           </div>
         </div>
       </div>

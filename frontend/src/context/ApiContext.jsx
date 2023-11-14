@@ -7,6 +7,14 @@ const ApiContext = createContext();
 
 export function ApiProvider({ children }) {
   const [api, setApi] = useState([]);
+  const [favorites, setFavorites] = useState(new Map());
+
+  async function toogleFavorite(name) {
+    favorites.set(name, favorites.has(name) ? !favorites.get(name) : true);
+
+    setFavorites(favorites);
+    setApi(api);
+  }
 
   useEffect(() => {
     axios
@@ -20,7 +28,7 @@ export function ApiProvider({ children }) {
   }, []);
 
   return (
-    <ApiContext.Provider value={{ api, setApi }}>
+    <ApiContext.Provider value={{ api, setApi, favorites, toogleFavorite }}>
       {children}
     </ApiContext.Provider>
   );

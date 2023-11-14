@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { FilterContext } from "../context/FilterContext";
@@ -19,10 +20,10 @@ function NavBar() {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto">
-            <Nav.Link href="/">Accueil</Nav.Link>
-            <Nav.Link href="/about">À propos</Nav.Link>
-            <Nav.Link href="/quizz">Quizz</Nav.Link>
-            <Nav.Link href="/favorite">Favorite</Nav.Link>
+            <Link to="/">Accueil</Link>
+            <Link to="/about">À propos</Link>
+            <Link to="/quizz">Quizz</Link>
+            <Link to="/favorites">Favorite</Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
