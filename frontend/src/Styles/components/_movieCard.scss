@@ -22,13 +22,14 @@
     align-items: center;
     padding: 5px;
     width: 200px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.548);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.548);
 
     .movie-img {
       border-radius: 25px;
       // padding-top: 10px;
       width: 180px;
       height: 300px;
+      box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.548);
     }
 
     .movie-h3 {

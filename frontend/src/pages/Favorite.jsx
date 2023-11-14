@@ -8,7 +8,7 @@ export default function Favorite() {
       {api
         .filter((movie) => favorites.get(movie.title))
         .map((movie) => (
-          <div className="movie-card">
+          <div className="movie-card" key={movie.id}>
             <img className="movie-img" src={movie.image} alt={movie.title} />
             <h3 className="movie-h3">{movie.title}</h3>
             <p>{movie.release_date}</p>
