@@ -6,6 +6,7 @@ import App from "./App";
 import About from "./pages/About";
 import Quizz from "./pages/Quizz";
 import PageFilm from "./pages/PageFilms";
+import Favorite from "./pages/Favorite";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/quizz",
         element: <Quizz />,
+      },
+      {
+        path: "/favorite",
+        element: <Favorite />,
       },
       {
         path: "/thisMovie/:movieId",

@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 50px;
-  padding: 20px;
+  padding: 10px;
   gap: 20px;
   border-radius: 25px;
   background-color: rgba(128, 128, 128, 0.356);
@@ -34,5 +34,10 @@
   .movie-h3 {
     padding: 10px 5px 5px 5px;
     font-size: 1.1rem;
+  }
+  .heart {
+    width: 20px;
+    height: 20px;
+    z-index: 50;
   }
 }
