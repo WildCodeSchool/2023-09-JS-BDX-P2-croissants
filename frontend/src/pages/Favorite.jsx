@@ -23,7 +23,7 @@ export default function Favorite() {
             <div className="movie-card" key={movie.id}>
               <img className="movie-img" src={movie.image} alt={movie.title} />
               <h3 className="movie-h3">{movie.title}</h3>
-              <p>Date de Sortie:{movie.release_date}</p>
+              <p>Date de Sortie :{movie.release_date}</p>
               <div>⭐ {movie.rt_score} / 100</div>
               <button type="button" onClick={() => onLike(movie.title)}>
                 {favorites.get(movie.title) ? "❤️" : "🤍"}
