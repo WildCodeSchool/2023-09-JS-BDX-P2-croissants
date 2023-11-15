@@ -15,10 +15,6 @@
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-
-    h2 {
-      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.548);
-    }
   }
 
   .filter-title {
@@ -53,6 +49,20 @@
           flex: 1; /* Les labels occupent tout l'espace disponible horizontalement */
           margin-right: 10px; /* Espace entre le label et l'input */
           text-align: right; /* Alignez le texte du label à droite */
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 760px) {
+  .container-filter {
+    .filter-title {
+      .filter-director {
+        form {
+          label {
+            font-size: 20px;
+          }
         }
       }
     }

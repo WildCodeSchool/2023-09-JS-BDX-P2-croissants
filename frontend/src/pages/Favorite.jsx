@@ -12,7 +12,7 @@ export default function Favorite() {
   };
 
   return (
-    <div>
+    <div className="all">
       <div className="title-favorite">
         <h1>FAVORITE</h1>
       </div>
