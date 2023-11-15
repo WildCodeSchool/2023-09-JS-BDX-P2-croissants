@@ -70,16 +70,31 @@ function About() {
           l'un des films emblématiques du studio, sorti en 1988.
         </p>
       </div>
-      <form action="" onSubmit={handleSubmit}>
-        <label htmlFor="titre">Nom </label>
-        <input type="text" name="name" id="name" onChange={handleInput} />
+      <form className="blog" action="" onSubmit={handleSubmit}>
+        <label className="label" htmlFor="titre">
+          Nom{" "}
+        </label>
         <input
+          className="input"
+          type="text"
+          name="name"
+          id="name"
+          onChange={handleInput}
+        />
+        <input
+          className="input"
           type="text"
           name="title"
           placeholder="Entrer un titre"
           onChange={handleInput}
         />
-        <input type="url" name="url" placeholder="URL" onChange={handleInput} />
+        <input
+          className="input"
+          type="url"
+          name="url"
+          placeholder="URL"
+          onChange={handleInput}
+        />
         <textarea
           className="input-actuality"
           type="text"
