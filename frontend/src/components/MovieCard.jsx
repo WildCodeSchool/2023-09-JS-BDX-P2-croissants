@@ -57,7 +57,7 @@ function MovieCard() {
             <img className="movie-img" src={movie.image} alt={movie.title} />
             <h3 className="movie-h3">{movie.title}</h3>
           </Link>
-          <p>{movie.release_date}</p>
+          <p>Date de Sortie: {movie.release_date}</p>
           <div>⭐ {movie.rt_score} / 100</div>
 
           <button type="button" onClick={() => onLike(movie.title)}>

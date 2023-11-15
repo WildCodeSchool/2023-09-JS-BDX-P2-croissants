@@ -1,6 +1,15 @@
 .favorite {
-  margin: 0 20%;
+  margin: 0 10%;
 }
+.title-favorite {
+  text-align: center;
+  margin-top: 20px;
+
+  h1 {
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.548);
+  }
+}
+
 .movie-container {
   display: flex;
   flex-wrap: wrap;
@@ -12,9 +21,10 @@
   background-color: rgba(128, 128, 128, 0.356);
   position: relative;
   z-index: 2;
+  min-height: 50vh;
 
   .movie-card {
-    border: 0.5px solid black;
+    // border: 0.5px solid black;
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -29,7 +39,7 @@
       // padding-top: 10px;
       width: 180px;
       height: 300px;
-      box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.548);
+      box-shadow: 6px 3px 5px rgba(0, 0, 0, 0.548);
     }
 
     .movie-h3 {
@@ -42,6 +52,7 @@
     button {
       background: transparent;
       border: none;
+      font-size: 1.8rem;
     }
   }
 }
