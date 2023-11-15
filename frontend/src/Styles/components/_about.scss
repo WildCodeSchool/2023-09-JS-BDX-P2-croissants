@@ -48,7 +48,12 @@
     z-index: 2;
     background-color: #eaeaea53;
     border-radius: 10px;
-    padding: 5px 20px;
+    padding: 10px 20px;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+    }
 
     h2 {
       margin: 30px 10px;
@@ -60,45 +65,43 @@
       border-radius: 20px;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.548);
       display: flex;
-      align-items: center;
       gap: 10px;
-      padding: 10px;
+      padding: 5px 50px 5px 50px;
 
       h1 {
         margin-bottom: 20px;
         font-size: 1rem;
       }
-      .container-img {
-        width: 150px;
-        height: 150px;
-        display: flex;
-        justify-content: center;
 
-        img {
-          width: 150px;
-          height: 150px;
-          background-size: cover;
-          background-position: center;
-          // object-fit: cover;
-        }
+      img {
+        width: 40vw;
+        height: 40vh;
+        background-size: cover;
+        background-position: center;
+        align-self: center;
+        // object-fit: cover;
       }
 
       p {
+        font-size: 1.5rem;
+        word-wrap: break-word;
+      }
+
+      span {
+        text-align: right;
         font-size: 1rem;
-        text-align: center;
       }
-      .span {
-        width: 150px;
-        display: flex;
-        align-items: end;
-        span {
-          text-align: center;
-          font-size: 1rem;
-        }
-      }
+
       button {
-        width: 100px;
-        height: 30px;
+        height: 80px;
+        width: 180px;
+        padding: 10px 25px;
+        background-color: #eaeaea;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.3s;
+        border-radius: 10px;
+        align-self: center;
       }
     }
   }

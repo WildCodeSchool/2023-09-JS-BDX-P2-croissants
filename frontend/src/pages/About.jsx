@@ -107,21 +107,19 @@ function About() {
       </form>
       <div className="container-actuality">
         <h2>ACTUALITE:</h2>
-        {api
-          // .sort((a, b) => b.date - a.date)
-          .map((list) => (
-            <ul key={list.id}>
-              <h1>{list.title}</h1>
-              <img src={list.url} alt="" />
-              <p>{list.content}</p>
-              <span>Author : {list.name}</span>
-              <span>Posté le: {dateFormater(list.date)}</span>
+        {api.map((list) => (
+          <ul key={list.id}>
+            <h2>{list.title}</h2>
+            <img src={list.url} alt="" />
+            <h3>Author : {list.name}</h3>
+            <p>{list.content}</p>
+            <span>Posté le: {dateFormater(list.date)}</span>
 
-              <button type="button" onClick={() => handleDelete(list.id)}>
-                Supprimer
-              </button>
-            </ul>
-          ))}
+            <button type="button" onClick={() => handleDelete(list.id)}>
+              Supprimer
+            </button>
+          </ul>
+        ))}
       </div>
     </div>
   );
