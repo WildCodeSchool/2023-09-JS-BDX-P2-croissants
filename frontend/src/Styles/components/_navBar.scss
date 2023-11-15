@@ -1,5 +1,5 @@
 .navbar-custom {
-  background-color: $primary-color !important;
+  background-color: rgba(255, 255, 255, 0.557) !important;
   width: calc(
     100% - 1.875rem
   ); /* Réduire la largeur de la navbar en ajoutant des marges sur les côtés */
@@ -21,6 +21,7 @@
       color: black;
       font-size: 1rem;
       margin: 10px;
+      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.548);
     }
   }
   .search-input {
