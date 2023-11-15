@@ -55,6 +55,9 @@ function About() {
     <div className="container">
       <div className="container-history">
         <h2>HISTORIQUE:</h2>
+        <div className="image">
+          <img src="src/assets/Studio_Ghibli_studio_3.jpg" alt="Studio" />
+        </div>
         <p>
           Le Studio Ghibli Inc. est un studio d'animation japonais fondé par
           Hayao Miyazaki et Isao Takahata en 1985. Il produit des longs-métrages
@@ -66,7 +69,6 @@ function About() {
           représentation de Totoro, une créature apparue dans Mon voisin Totoro,
           l'un des films emblématiques du studio, sorti en 1988.
         </p>
-        <img src="../assets/nous/Studio_Ghibli_studio_3.png" alt="Studio" />
       </div>
       <form action="" onSubmit={handleSubmit}>
         <label htmlFor="titre">Nom </label>
@@ -97,11 +99,8 @@ function About() {
               <h1>{list.title}</h1>
               <img src={list.url} alt="" />
               <p>{list.content}</p>
-              <div className="span">
-                <span>Note : {list.star}</span>
-              </div>
-              <span>author : {list.name}</span>
-              <span>posté le: {dateFormater(list.date)}</span>
+              <span>Author : {list.name}</span>
+              <span>Posté le: {dateFormater(list.date)}</span>
 
               <button type="button" onClick={() => handleDelete(list.id)}>
                 Supprimer
