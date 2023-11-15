@@ -55,6 +55,9 @@ function About() {
     <div className="container">
       <div className="container-history">
         <h2>HISTORIQUE:</h2>
+        <div className="image">
+          <img src="src/assets/Studio_Ghibli_studio_3.jpg" alt="Studio" />
+        </div>
         <p>
           Le Studio Ghibli Inc. est un studio d'animation japonais fondé par
           Hayao Miyazaki et Isao Takahata en 1985. Il produit des longs-métrages
@@ -66,18 +69,34 @@ function About() {
           représentation de Totoro, une créature apparue dans Mon voisin Totoro,
           l'un des films emblématiques du studio, sorti en 1988.
         </p>
-        <img src="../assets/nous/Studio_Ghibli_studio_3.png" alt="Studio" />
       </div>
-      <form action="" onSubmit={handleSubmit}>
-        <label htmlFor="titre">Nom </label>
-        <input type="text" name="name" id="name" onChange={handleInput} />
-        <input
-          type="text"
-          name="title"
-          placeholder="Entrer un titre"
-          onChange={handleInput}
-        />
-        <input type="url" name="url" placeholder="URL" onChange={handleInput} />
+      <form className="blog" action="" onSubmit={handleSubmit}>
+        <label className="label" htmlFor="titre">
+          Nom{" "}
+        </label>
+        <div className="inputs">
+          <input
+            className="input"
+            type="text"
+            name="name"
+            id="name"
+            onChange={handleInput}
+          />
+          <input
+            className="input"
+            type="text"
+            name="title"
+            placeholder="Entrer un titre"
+            onChange={handleInput}
+          />
+          <input
+            className="input"
+            type="url"
+            name="url"
+            placeholder="URL"
+            onChange={handleInput}
+          />
+        </div>
         <textarea
           className="input-actuality"
           type="text"
@@ -90,24 +109,19 @@ function About() {
       </form>
       <div className="container-actuality">
         <h2>ACTUALITE:</h2>
-        {api
-          // .sort((a, b) => b.date - a.date)
-          .map((list) => (
-            <ul key={list.id}>
-              <h1>{list.title}</h1>
-              <img src={list.url} alt="" />
-              <p>{list.content}</p>
-              <div className="span">
-                <span>Note : {list.star}</span>
-              </div>
-              <span>author : {list.name}</span>
-              <span>posté le: {dateFormater(list.date)}</span>
+        {api.map((list) => (
+          <ul key={list.id}>
+            <h3>{list.title}</h3>
+            <img src={list.url} alt="" />
+            <h3>Author : {list.name}</h3>
+            <p>{list.content}</p>
+            <span>Posté le: {dateFormater(list.date)}</span>
 
-              <button type="button" onClick={() => handleDelete(list.id)}>
-                Supprimer
-              </button>
-            </ul>
-          ))}
+            <button type="button" onClick={() => handleDelete(list.id)}>
+              Supprimer
+            </button>
+          </ul>
+        ))}
       </div>
     </div>
   );
