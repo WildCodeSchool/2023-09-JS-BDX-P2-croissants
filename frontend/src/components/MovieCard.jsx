@@ -11,15 +11,24 @@ function MovieCard() {
   useEffect(() => {
     setSelectedMovie(
       api
-        .filter(
-          (movie) =>
+        .filter((movie) => {
+          return (
             searchTerm === "" ||
-            movie.title.toLowerCase().includes(searchTerm.toLowerCase()) || // On filtre les films par rapport au titre
-            (movie.release_date >= selectedYears[0] &&
-              movie.release_date <= selectedYears[1]) || // On filtre les films par rapport à la date de sortie
-            (movie.rt_score >= selectedStar[0] &&
-              movie.rt_score <= selectedStar[1]) // On filtre les films par rapport au score
-        )
+            movie.title.toLowerCase().includes(searchTerm.toLowerCase()) // On filtre les films par rapport au titre
+          );
+        })
+        .filter((movie) => {
+          return (
+            movie.release_date >= selectedYears[0] && // On filtre les films par rapport à la date de sortie
+            movie.release_date <= selectedYears[1]
+          );
+        })
+        .filter((movie) => {
+          return (
+            movie.rt_score >= selectedStar[0] && // On filtre les films par rapport au score
+            movie.rt_score <= selectedStar[1]
+          );
+        })
         .filter((movie) => {
           const selectedDirectors = Object.keys(directors).filter(
             // On récupère les réalisateurs sélectionnés
