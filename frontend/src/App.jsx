@@ -5,8 +5,6 @@ import Filter from "./components/Filter";
 import FilmOfDay from "./components/FilmOfDay";
 import BackToTopButton from "./components/BackToTopButton";
 
-import SkyAnimation from "./components/SkyAnimation";
-
 function App() {
   const [isPlaying, setIsPlaying] = useState(false); // Le son
   const audioRef = useRef(null);
@@ -59,7 +57,6 @@ function App() {
         <FilmOfDay />
         <Filter />
         <MovieCard />
-        <SkyAnimation />
         <audio ref={audioRef}>
           <track kind="captions" />
           <source src="src/assets/son.mp3" type="audio/mpeg" />
