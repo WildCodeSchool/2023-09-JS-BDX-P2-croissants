@@ -74,27 +74,29 @@ function About() {
         <label className="label" htmlFor="titre">
           Nom{" "}
         </label>
-        <input
-          className="input"
-          type="text"
-          name="name"
-          id="name"
-          onChange={handleInput}
-        />
-        <input
-          className="input"
-          type="text"
-          name="title"
-          placeholder="Entrer un titre"
-          onChange={handleInput}
-        />
-        <input
-          className="input"
-          type="url"
-          name="url"
-          placeholder="URL"
-          onChange={handleInput}
-        />
+        <div className="inputs">
+          <input
+            className="input"
+            type="text"
+            name="name"
+            id="name"
+            onChange={handleInput}
+          />
+          <input
+            className="input"
+            type="text"
+            name="title"
+            placeholder="Entrer un titre"
+            onChange={handleInput}
+          />
+          <input
+            className="input"
+            type="url"
+            name="url"
+            placeholder="URL"
+            onChange={handleInput}
+          />
+        </div>
         <textarea
           className="input-actuality"
           type="text"
@@ -109,7 +111,7 @@ function About() {
         <h2>ACTUALITE:</h2>
         {api.map((list) => (
           <ul key={list.id}>
-            <h2>{list.title}</h2>
+            <h3>{list.title}</h3>
             <img src={list.url} alt="" />
             <h3>Author : {list.name}</h3>
             <p>{list.content}</p>
