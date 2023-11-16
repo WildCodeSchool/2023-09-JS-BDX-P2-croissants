@@ -91,17 +91,12 @@
         text-align: right;
         font-size: 1rem;
       }
-
       button {
-        height: 80px;
-        width: 180px;
-        padding: 10px 25px;
-        background-color: #eaeaea;
-        border: none;
-        cursor: pointer;
-        transition: transform 0.3s;
-        border-radius: 10px;
         align-self: center;
+        border: none;
+        padding: 8px;
+        border-radius: 20px;
+        background-color: red;
       }
     }
   }

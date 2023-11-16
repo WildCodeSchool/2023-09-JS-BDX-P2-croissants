@@ -29,11 +29,12 @@ app.post("/", async (req, res) => {
   try {
     const postData = req.body;
     // Ajouter les données au tableau dans la mémoire
-    dbStock[0].history.unshift({
+    const newValue = {
       ...postData.post,
       id: uuidGenerator(),
       date: Date.now(),
-    });
+    };
+    dbStock[0].history.unshift(newValue);
     console.info(dbStock[0].history);
     // Convertir le tableau en format JSON
     const jsonData = JSON.stringify(dbStock, null, 2);
@@ -41,7 +42,7 @@ app.post("/", async (req, res) => {
     const filePath = "/home/lucas/2023-09-JS-BDX-P2-croissants/backend/db.json";
     // Écriture du nouveau contenu dans le fichier
     await fs.writeFile(filePath, jsonData);
-    res.send("Données ajoutées avec succès et fichier réécrit.");
+    res.status(201).send(newValue);
   } catch (error) {
     console.error(
       "Erreur lors de l'ajout des données ou de la réécriture du fichier :",
