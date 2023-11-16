@@ -1,0 +1,136 @@
+.sprite {
+  position: fixed;
+  height: 100px;
+  width: 200px;
+  animation-name: moveDiagonally;
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: 1;
+}
+.sprite1 {
+  left: 0%;
+  bottom: 0%;
+  animation-name: moveDiagonally1;
+  animation-duration: 8s;
+}
+.sprite2 {
+  left: 20%;
+  bottom: 0%;
+  animation-name: moveDiagonally2;
+  animation-duration: 10s;
+}
+.sprite3 {
+  left: 40%;
+  bottom: 0%;
+  animation-name: moveDiagonally3;
+  animation-duration: 16s;
+}
+.sprite4 {
+  left: 60%;
+  bottom: 0%;
+  animation-name: moveDiagonally4;
+  animation-duration: 20s;
+}
+
+.sprite5 {
+  left: 80%;
+  bottom: 0%;
+  animation-name: moveDiagonally1;
+  animation-duration: 30s;
+}
+.dsprite {
+  left: 0;
+}
+.dsprite1 {
+  bottom: 20%;
+  animation-name: moveFromLeft1;
+  animation-duration: 10s;
+}
+.dsprite2 {
+  bottom: 40%;
+  animation-name: moveFromLeft2;
+  animation-duration: 13s;
+}
+.dsprite3 {
+  bottom: 60%;
+  animation-name: moveFromLeft3;
+}
+.dsprite4 {
+  bottom: 80%;
+  animation-name: moveFromLeft4;
+  animation-duration: 20s;
+}
+@keyframes moveDiagonally1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(100vw - 80px), calc(-100vh + 20px));
+  }
+}
+@keyframes moveDiagonally2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(80vw - 80px), calc(-100vh + 160px));
+  }
+}
+@keyframes moveDiagonally3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(60vw - 80px), calc(-100vh + 280px));
+  }
+}
+@keyframes moveDiagonally4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(40vw - 80px), calc(-100vh + 420px));
+  }
+}
+@keyframes moveFromLeft1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(100vw - 80px), calc(-100vh + 80px));
+  }
+}
+@keyframes moveFromLeft2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(80vw - 80px), calc(-80vh + 80px));
+  }
+}
+
+@keyframes moveFromLeft3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(60vw - 80px), calc(-60vh + 80px));
+  }
+}
+
+@keyframes moveFromLeft4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(40vw - 80px), calc(-40vh + 80px));
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .sprite {
+    height: 150px;
+    width: 250px;
+  }
+}

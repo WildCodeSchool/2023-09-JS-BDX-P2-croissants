@@ -1,40 +1,68 @@
-import Counter from "./components/Counter";
-import logo from "./assets/logo.svg";
-
-import "./App.css";
+import { useEffect, useState, useRef } from "react";
+import "./Styles/index.scss";
+import MovieCard from "./components/MovieCard";
+import Filter from "./components/Filter";
+import FilmOfDay from "./components/FilmOfDay";
+import BackToTopButton from "./components/BackToTopButton";
 
 function App() {
+  const [isPlaying, setIsPlaying] = useState(false); // Le son
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      // Parallax est dangereux
+      window.requestAnimationFrame(() => {
+        const scrollToTop = document.scrollingElement.scrollTop;
+        const target = document.body;
+        const xvalue = "center";
+        const factor = 0.2;
+        const yvalue = scrollToTop * factor;
+        target.style.backgroundPosition = `${xvalue} -${yvalue}px`;
+      });
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const togglePlay = () => {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React !</p>
-
-        <Counter />
-
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+    <div>
+      <div className="global-container">
+        <button
+          className="button-son"
+          type="button"
+          onClick={togglePlay}
+          aria-pressed={isPlaying}
+          title="Contrôler le son"
+        >
+          <img
+            className="img-son"
+            src={
+              isPlaying
+                ? "src/assets/volume-up.svg"
+                : "src/assets/volume-mute.svg"
+            }
+            alt={isPlaying ? "Désactiver le son" : "Activer le son"}
+          />
+        </button>
+        <FilmOfDay />
+        <Filter />
+        <MovieCard />
+        <audio ref={audioRef}>
+          <track kind="captions" />
+          <source src="src/assets/son.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+      <BackToTopButton />
     </div>
   );
 }
