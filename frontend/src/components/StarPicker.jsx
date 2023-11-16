@@ -1,23 +1,24 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import noUiSlider from "nouislider";
 import wNumb from "wnumb";
-import { FilterContext } from "../context/FilterContext";
 import "nouislider/dist/nouislider.css";
+import { FilterContext } from "../context/FilterContext";
+import "../Styles/components/_slider.scss";
 
 function StarPicker() {
   const sliderRef = useRef(null);
-  const { selectedStar, setSelectedStar } = useContext(FilterContext); // This is the context that will be used in this component
+  const { selectedStar, setSelectedStar } = useContext(FilterContext);
+  const [localStar, setLocalStart] = useState(selectedStar); // Local state for slider values
 
+  // Initialize the slider
   useEffect(() => {
     if (sliderRef.current) {
       const slider = noUiSlider.create(sliderRef.current, {
-        start: selectedStar,
+        start: localStar,
         range: { min: 30, max: 100 },
         connect: true,
         tooltips: [true, true],
-        format: wNumb({
-          decimals: 0,
-        }),
+        format: wNumb({ decimals: 0 }),
       });
 
       slider.on("start", () => {
@@ -37,8 +38,12 @@ function StarPicker() {
       });
 
       slider.on("update", (values) => {
-        const parsedValues = values.map((value) => parseInt(value, 10));
-        setSelectedStar(parsedValues);
+        setLocalStart(values.map((value) => parseInt(value, 10)));
+      });
+
+      slider.on("change", (values) => {
+        const newValues = values.map((value) => parseInt(value, 10));
+        setSelectedStar(newValues);
       });
 
       const tooltips = sliderRef.current.querySelectorAll(".noUi-tooltip");
@@ -46,20 +51,27 @@ function StarPicker() {
         const newTooltip = tooltip;
         newTooltip.style.display = "none";
       });
-    }
 
-    return () => {
-      if (sliderRef.current && sliderRef.current.noUiSlider) {
-        sliderRef.current.noUiSlider.destroy();
-      }
-    };
+      return () => {
+        if (sliderRef.current && sliderRef.current.noUiSlider) {
+          sliderRef.current.noUiSlider.destroy();
+        }
+      };
+    }
+    return undefined;
   }, []);
+
+  useEffect(() => {
+    if (sliderRef.current && sliderRef.current.noUiSlider) {
+      sliderRef.current.noUiSlider.set(selectedStar);
+    }
+  }, [selectedStar]);
 
   return (
     <div className="ui-slider">
       <div ref={sliderRef} />
-      <div className="title">
-        Selected Stars: {selectedStar[0]} - {selectedStar[1]}
+      <div className="title from-year">
+        Selected Stars: {localStar[0]} - {localStar[1]}
       </div>
     </div>
   );

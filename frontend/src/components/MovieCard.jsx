@@ -6,8 +6,13 @@ import { FilterContext } from "../context/FilterContext";
 function MovieCard() {
   const { api, toogleFavorite, favorites } = useApi();
   const [selectedMovie, setSelectedMovie] = useState(api); // Les films triés par les filtres
-  const { searchTerm, selectedYears, selectedStar, directors, resetFilters } =
+  const { searchTerm, selectedYears, selectedStar, directors } =
     useContext(FilterContext); // This is the context that will be used in this component
+
+  useEffect(() => {
+    setSelectedMovie(api);
+  }, []);
+
   useEffect(() => {
     setSelectedMovie(
       api
@@ -41,11 +46,6 @@ function MovieCard() {
         })
     );
   }, [searchTerm, selectedStar, selectedYears, directors, api]);
-
-  useEffect(() => {
-    // Reset les filtres au chargement de la page
-    resetFilters();
-  }, []);
 
   const [reload, setReload] = useState(false);
   useEffect(() => {}, [reload]);

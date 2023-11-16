@@ -20,6 +20,7 @@ export const FilterContext = createContext({
     "Michaël Dudok de Wit": false,
   },
   setDirectors: () => {},
+  resetFilters: () => {},
 });
 
 function FilterContextProvider({ children }) {
