@@ -1,10 +1,14 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
   .container-history {
     margin: 50px 0;
     padding: 10px;
     position: relative;
     z-index: 2;
-    background-color: #eaeaea53;
+    background-color: rgba(234, 234, 234, 0.7);
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.548);
     margin: 20px;
@@ -12,23 +16,22 @@
 
     h2 {
       margin: 30px 10px;
-      font-size: 40px;
+      font-size: 30px;
     }
     p {
-      font-size: 1.875rem;
+      font-size: 1.25rem;
       text-align: center;
+      margin-top: 20px;
     }
 
     img {
-      height: 300px;
-      width: 400px;
+      height: 200px;
+      width: 300px;
     }
 
     .image {
       display: flex;
-      justify-content: flex-end;
-      float: right;
-      margin-left: 10px;
+      justify-content: center;
     }
   }
   textarea {
@@ -57,11 +60,11 @@
 
     h2 {
       margin: 30px 10px;
-      font-size: 40px;
+      font-size: 30px;
     }
 
     ul {
-      background: rgba(255, 255, 255, 0.325);
+      background: rgba(255, 255, 255, 0.6);
       border-radius: 20px;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.548);
       display: flex;
@@ -74,16 +77,14 @@
       }
 
       img {
-        width: 40vw;
-        height: 40vh;
+        width: 50vw;
         background-size: cover;
         background-position: center;
         align-self: center;
-        // object-fit: cover;
       }
 
       p {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         word-wrap: break-word;
       }
 
@@ -126,4 +127,40 @@
   border-radius: 10px;
   padding: 3px;
   font-weight: bold;
+}
+
+@media (min-width: 780px) {
+  .container {
+    .container-history {
+      h2 {
+        font-size: 40px;
+      }
+      p {
+        font-size: 1.875rem;
+      }
+      img {
+        height: 300px;
+        width: 400px;
+      }
+      .image {
+        justify-content: flex-end;
+        float: right;
+        margin-left: 10px;
+      }
+    }
+    .container-actuality {
+      h2 {
+        font-size: 30px;
+      }
+      img {
+        width: 150px;
+        height: 150px;
+      }
+      ul {
+        img {
+          height: 40vh;
+        }
+      }
+    }
+  }
 }

@@ -54,3 +54,17 @@
     }
   }
 }
+
+@media (min-width: 760px) {
+  .container-filter {
+    .filter-title {
+      .filter-director {
+        form {
+          label {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -20,8 +20,8 @@ function NavBar() {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto">
-            <Link to="/">Accueil</Link>
-            <Link to="/about">À propos</Link>
+            <Link to="/">Home</Link>
+            <Link to="/about">Blog</Link>
             <Link to="/quizz">Quizz</Link>
             <Link to="/favorites">Favorite</Link>
           </Nav>
