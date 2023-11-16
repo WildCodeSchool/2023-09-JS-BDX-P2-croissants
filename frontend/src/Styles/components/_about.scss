@@ -77,10 +77,12 @@
       }
 
       img {
-        width: 50vw;
+        width: 40vw;
         background-size: cover;
         background-position: center;
         align-self: center;
+        border-radius: 5px;
+        padding: 5px;
       }
 
       p {
@@ -100,13 +102,6 @@
         background-color: red;
       }
     }
-  }
-}
-.container-actuality {
-  img {
-    width: 150px;
-    padding: 5px;
-    border-radius: 25px;
   }
 }
 
@@ -137,10 +132,6 @@
       }
       p {
         font-size: 1.875rem;
-      }
-      img {
-        height: 300px;
-        width: 400px;
       }
       .image {
         justify-content: flex-end;
