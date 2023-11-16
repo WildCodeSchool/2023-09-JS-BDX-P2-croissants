@@ -77,10 +77,12 @@
       }
 
       img {
-        width: 50vw;
+        width: 40vw;
         background-size: cover;
         background-position: center;
         align-self: center;
+        border-radius: 5px;
+        padding: 5px;
       }
 
       p {
@@ -92,30 +94,14 @@
         text-align: right;
         font-size: 1rem;
       }
-
       button {
-        height: 60px;
-        width: 160px;
-        padding: 10px 25px;
-        background-color: #eaeaea;
-        border: none;
-        cursor: pointer;
-        transition: transform 0.3s;
-        border-radius: 10px;
         align-self: center;
-        margin-bottom: 20px;
-      }
-      h3 {
-        margin-top: 20px;
+        border: none;
+        padding: 8px;
+        border-radius: 20px;
+        background-color: red;
       }
     }
-  }
-}
-.container-actuality {
-  img {
-    width: 150px;
-    padding: 5px;
-    border-radius: 25px;
   }
 }
 
@@ -146,10 +132,6 @@
       }
       p {
         font-size: 1.875rem;
-      }
-      img {
-        height: 300px;
-        width: 400px;
       }
       .image {
         justify-content: flex-end;
