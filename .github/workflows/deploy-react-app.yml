@@ -34,13 +34,17 @@ jobs:
 
       - name: Install package dependencies
         if: steps.cache-nextjob.outputs.cache-hit != 'true'
-        run: npm install
+        run: |
+          cd frontend
+          npm install
 
       - name: Build
-        run: npm run build
+        run: |
+          cd frontend
+          npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # directory to deploy
+          publish_dir: ./frontend/dist # directory to deploy
