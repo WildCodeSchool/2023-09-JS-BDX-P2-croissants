@@ -42,8 +42,10 @@
     border-radius: 10px;
   }
   .edit {
-    padding: 10px 20px;
+    padding: 10px 25px;
     border-radius: 10px;
+    border: none;
+    background-color: white;
   }
   .container-actuality {
     padding: 10px;
@@ -98,8 +100,9 @@
         align-self: center;
         border: none;
         padding: 8px;
-        border-radius: 20px;
-        background-color: red;
+        border-radius: 10px;
+        background-color: white;
+        margin-bottom: 5px;
       }
     }
   }
