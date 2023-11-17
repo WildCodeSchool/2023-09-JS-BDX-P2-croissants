@@ -99,7 +99,7 @@ function About() {
           onChange={handleInput}
         />
 
-        <input type="submit" className="edit" value="Edit" />
+        <input type="submit" className="edit" value="Editer" />
       </form>
       <div className="container-actuality">
         <h2>ACTUALITE:</h2>
@@ -107,11 +107,11 @@ function About() {
           <ul key={item.id}>
             <h2>{item.title}</h2>
             <img src={item.url} alt="" />
-            <h3>Author : {item.name}</h3>
+            <h3>Auteur : {item.name}</h3>
             <p>{item.content}</p>
             <span>Posté le: {dateFormater(item.date)}</span>
             <button type="button" onClick={() => handleDelete(item.id)}>
-              Delete
+              Supprimer
             </button>
           </ul>
         ))}
