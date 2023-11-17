@@ -1,10 +1,14 @@
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
   .container-history {
     margin: 50px 0;
     padding: 10px;
     position: relative;
     z-index: 2;
-    background-color: #eaeaea53;
+    background-color: rgba(234, 234, 234, 0.7);
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.548);
     margin: 20px;
@@ -12,23 +16,22 @@
 
     h2 {
       margin: 30px 10px;
-      font-size: 40px;
+      font-size: 30px;
     }
     p {
-      font-size: 1.875rem;
+      font-size: 1.25rem;
       text-align: center;
+      margin-top: 20px;
     }
 
     img {
-      height: 300px;
-      width: 400px;
+      height: 200px;
+      width: 300px;
     }
 
     .image {
       display: flex;
-      justify-content: flex-end;
-      float: right;
-      margin-left: 10px;
+      justify-content: center;
     }
   }
   textarea {
@@ -39,8 +42,10 @@
     border-radius: 10px;
   }
   .edit {
-    padding: 10px 20px;
+    padding: 10px 25px;
     border-radius: 10px;
+    border: none;
+    background-color: white;
   }
   .container-actuality {
     padding: 10px;
@@ -57,11 +62,11 @@
 
     h2 {
       margin: 30px 10px;
-      font-size: 40px;
+      font-size: 30px;
     }
 
     ul {
-      background: rgba(255, 255, 255, 0.325);
+      background: rgba(255, 255, 255, 0.6);
       border-radius: 20px;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.548);
       display: flex;
@@ -75,15 +80,15 @@
 
       img {
         width: 40vw;
-        height: 40vh;
         background-size: cover;
         background-position: center;
         align-self: center;
-        // object-fit: cover;
+        border-radius: 5px;
+        padding: 5px;
       }
 
       p {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         word-wrap: break-word;
       }
 
@@ -91,26 +96,15 @@
         text-align: right;
         font-size: 1rem;
       }
-
       button {
-        height: 80px;
-        width: 180px;
-        padding: 10px 25px;
-        background-color: #eaeaea;
-        border: none;
-        cursor: pointer;
-        transition: transform 0.3s;
-        border-radius: 10px;
         align-self: center;
+        border: none;
+        padding: 8px;
+        border-radius: 10px;
+        background-color: white;
+        margin-bottom: 5px;
       }
     }
-  }
-}
-.container-actuality {
-  img {
-    width: 150px;
-    padding: 5px;
-    border-radius: 25px;
   }
 }
 
@@ -131,4 +125,36 @@
   border-radius: 10px;
   padding: 3px;
   font-weight: bold;
+}
+
+@media (min-width: 780px) {
+  .container {
+    .container-history {
+      h2 {
+        font-size: 40px;
+      }
+      p {
+        font-size: 1.875rem;
+      }
+      .image {
+        justify-content: flex-end;
+        float: right;
+        margin-left: 10px;
+      }
+    }
+    .container-actuality {
+      h2 {
+        font-size: 30px;
+      }
+      img {
+        width: 150px;
+        height: 150px;
+      }
+      ul {
+        img {
+          height: 40vh;
+        }
+      }
+    }
+  }
 }

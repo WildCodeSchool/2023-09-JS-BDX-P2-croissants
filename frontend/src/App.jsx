@@ -1,13 +1,15 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import "./Styles/index.scss";
 import MovieCard from "./components/MovieCard";
 import Filter from "./components/Filter";
 import FilmOfDay from "./components/FilmOfDay";
 import BackToTopButton from "./components/BackToTopButton";
+import { FilterContext } from "./context/FilterContext";
 
 function App() {
   const [isPlaying, setIsPlaying] = useState(false); // Le son
   const audioRef = useRef(null);
+  const { resetFilters } = useContext(FilterContext);
 
   useEffect(() => {
     const onScroll = () => {
@@ -23,6 +25,11 @@ function App() {
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    // Reset les filtres au chargement de la page
+    resetFilters();
   }, []);
 
   const togglePlay = () => {

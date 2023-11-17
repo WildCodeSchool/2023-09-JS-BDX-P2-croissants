@@ -8,6 +8,11 @@ function MovieCard() {
   const [selectedMovie, setSelectedMovie] = useState(api); // Les films triés par les filtres
   const { searchTerm, selectedYears, selectedStar, directors } =
     useContext(FilterContext); // This is the context that will be used in this component
+
+  useEffect(() => {
+    setSelectedMovie(api);
+  }, []);
+
   useEffect(() => {
     setSelectedMovie(
       api
@@ -57,7 +62,7 @@ function MovieCard() {
             <img className="movie-img" src={movie.image} alt={movie.title} />
             <h3 className="movie-h3">{movie.title}</h3>
           </Link>
-          <p>{movie.release_date}</p>
+          <p>Date de Sortie : {movie.release_date}</p>
           <div>⭐ {movie.rt_score} / 100</div>
 
           <button type="button" onClick={() => onLike(movie.title)}>

@@ -10,7 +10,7 @@ export function ApiProvider({ children }) {
   const [favorites, setFavorites] = useState(new Map());
 
   async function toogleFavorite(name) {
-    favorites.set(name, favorites.has(name) ? !favorites.get(name) : true);
+    favorites.set(name, favorites.has(name) ? !favorites.get(name) : true); // fonction favorite
 
     setFavorites(favorites);
     setApi(api);

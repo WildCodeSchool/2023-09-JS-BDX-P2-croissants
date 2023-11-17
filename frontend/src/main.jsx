@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import GlobalApp from "./GlobalApp";
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        loader: async () => {
+          const { data } = await axios.get(`http://localhost:3000/`);
+          return { list: data[0].history };
+        },
       },
       {
         path: "/quizz",
