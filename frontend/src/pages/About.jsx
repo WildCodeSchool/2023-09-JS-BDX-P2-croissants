@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import studio from "../assets/nous/Studio_Ghibli_studio_3.jpg";
 
 function About() {
   const [api, setApi] = useState([]);
@@ -56,7 +57,7 @@ function About() {
       <div className="container-history">
         <h2>HISTORIQUE:</h2>
         <div className="image">
-          <img src="src/assets/Studio_Ghibli_studio_3.jpg" alt="Studio" />
+          <img src={studio} alt="Studio" />
         </div>
         <p>
           Le Studio Ghibli Inc. est un studio d'animation japonais fondé par
