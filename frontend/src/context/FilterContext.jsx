@@ -20,6 +20,7 @@ export const FilterContext = createContext({
     "Michaël Dudok de Wit": false,
   },
   setDirectors: () => {},
+  resetFilters: () => {},
 });
 
 function FilterContextProvider({ children }) {
@@ -38,6 +39,21 @@ function FilterContextProvider({ children }) {
     "Michaël Dudok de Wit": false,
   });
 
+  const resetFilters = () => {
+    setSearchTerm("");
+    setSelectedYears([1986, 2021]);
+    setSelectedStar([30, 100]);
+    setDirectors({
+      "Hayao Miyazaki": false,
+      "Isao Takahata": false,
+      "Yoshifumi Kondō": false,
+      "Hiroyuki Morita": false,
+      "Gorō Miyazaki": false,
+      "Hiromasa Yonebayashi": false,
+      "Michaël Dudok de Wit": false,
+    });
+  };
+
   // Utilise useMemo pour optimiser les performances en évitant de recréer le contexte à chaque rendu.
   const context = useMemo(() => {
     // C'est le contexte qui sera utilisé dans ce composant
@@ -50,6 +66,7 @@ function FilterContextProvider({ children }) {
       setSelectedStar,
       directors,
       setDirectors,
+      resetFilters,
     };
   }, [searchTerm, selectedYears, selectedStar, directors]);
 
