@@ -1,11 +1,8 @@
 import axios from "axios";
 
-import { useState, useEffect } from "react";
-import studio from "../assets/nous/Studio_Ghibli_studio_3.jpg";
-
-import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-
+import { useState } from "react";
+import studio from "../assets/nous/Studio_Ghibli_studio_3.jpg";
 
 function About() {
   const { list } = useLoaderData();
