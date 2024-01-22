@@ -8,6 +8,11 @@ function MovieCard() {
   const [selectedMovie, setSelectedMovie] = useState(api); // Les films triés par les filtres
   const { searchTerm, selectedYears, selectedStar, directors } =
     useContext(FilterContext); // This is the context that will be used in this component
+
+  useEffect(() => {
+    setSelectedMovie(api);
+  }, []);
+
   useEffect(() => {
     setSelectedMovie(
       api

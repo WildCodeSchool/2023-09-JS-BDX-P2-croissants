@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import arrow from "../assets/nous/fleche-vers-le-haut-sur-un-fond-de-cercle-noir.png";
 
 function BackToTopButton() {
   const [backToTopButton, setBackToTopButton] = useState(false);
@@ -26,7 +27,7 @@ function BackToTopButton() {
         <button type="button" className="fleche-top" onClick={scrollUp}>
           <img
             className="img-fleche-top"
-            src="../src/assets/fleche-vers-le-haut-sur-un-fond-de-cercle-noir.png"
+            src={arrow}
             alt="Fleche-vers-le-haut"
           />
         </button>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import noUiSlider from "nouislider";
 import wNumb from "wnumb";
 import "nouislider/dist/nouislider.css";
@@ -7,18 +7,18 @@ import "../Styles/components/_slider.scss";
 
 function DateYearPicker() {
   const sliderRef = useRef(null);
-  const { selectedYears, setSelectedYears } = useContext(FilterContext); // This is the context that will be used in this component
+  const { selectedYears, setSelectedYears } = useContext(FilterContext);
+  const [localYears, setLocalYears] = useState(selectedYears); // Local state for slider values
 
+  // Initialize the slider
   useEffect(() => {
     if (sliderRef.current) {
       const slider = noUiSlider.create(sliderRef.current, {
-        start: selectedYears,
+        start: localYears,
         range: { min: 1986, max: 2021 },
         connect: true,
         tooltips: [true, true],
-        format: wNumb({
-          decimals: 0,
-        }),
+        format: wNumb({ decimals: 0 }),
       });
 
       slider.on("start", () => {
@@ -38,8 +38,12 @@ function DateYearPicker() {
       });
 
       slider.on("update", (values) => {
-        const parsedValues = values.map((value) => parseInt(value, 10));
-        setSelectedYears(parsedValues);
+        setLocalYears(values.map((value) => parseInt(value, 10)));
+      });
+
+      slider.on("change", (values) => {
+        const newValues = values.map((value) => parseInt(value, 10));
+        setSelectedYears(newValues);
       });
 
       const tooltips = sliderRef.current.querySelectorAll(".noUi-tooltip");
@@ -47,20 +51,27 @@ function DateYearPicker() {
         const newTooltip = tooltip;
         newTooltip.style.display = "none";
       });
-    }
 
-    return () => {
-      if (sliderRef.current && sliderRef.current.noUiSlider) {
-        sliderRef.current.noUiSlider.destroy();
-      }
-    };
+      return () => {
+        if (sliderRef.current && sliderRef.current.noUiSlider) {
+          sliderRef.current.noUiSlider.destroy();
+        }
+      };
+    }
+    return undefined;
   }, []);
+
+  useEffect(() => {
+    if (sliderRef.current && sliderRef.current.noUiSlider) {
+      sliderRef.current.noUiSlider.set(selectedYears);
+    }
+  }, [selectedYears]);
 
   return (
     <div className="ui-slider">
       <div ref={sliderRef} />
       <div className="title from-year">
-        Selected Years: {selectedYears[0]} - {selectedYears[1]}
+        Selected Years: {localYears[0]} - {localYears[1]}
       </div>
     </div>
   );

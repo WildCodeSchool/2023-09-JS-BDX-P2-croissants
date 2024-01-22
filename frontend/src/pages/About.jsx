@@ -1,43 +1,39 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+
+import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import studio from "../assets/nous/Studio_Ghibli_studio_3.jpg";
 
 function About() {
-  const [api, setApi] = useState([]);
+  const { list } = useLoaderData();
+  const [api, setApi] = useState(list);
   const [post, setPost] = useState({
     name: "",
     content: "",
   });
 
-  const fetchMyApi = () => {
-    axios
-      .get(`http://localhost:3000/`)
-      .then(({ data }) => {
-        setApi(data[0].history);
-      })
-      .catch((error) => {
-        console.error("Erreur lors de la récupération des films:", error);
-      });
-  };
-  useEffect(() => {
-    fetchMyApi();
-  }, []);
   const handleDelete = async (id) => {
-    axios
-      .delete(`http://localhost:3000/comments/${id}`)
-      .then(fetchMyApi())
-      .catch((error) => console.error(error));
+    try {
+      await axios.delete(`http://localhost:3000/comments/${id}`);
+      setApi([...api.filter((item) => item.id !== id)]);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const handleInput = (e) => {
     setPost({ ...post, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:3000", { post })
-      .then(fetchMyApi())
-      .catch((error) => console.error(error));
+
+    try {
+      const { data } = await axios.post("http://localhost:3000", { post });
+      setApi([data, ...api]);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const dateFormater = (date) => {
@@ -56,7 +52,7 @@ function About() {
       <div className="container-history">
         <h2>HISTORIQUE:</h2>
         <div className="image">
-          <img src="src/assets/Studio_Ghibli_studio_3.jpg" alt="Studio" />
+          <img src={studio} alt="Studio" />
         </div>
         <p>
           Le Studio Ghibli Inc. est un studio d'animation japonais fondé par
@@ -105,19 +101,18 @@ function About() {
           onChange={handleInput}
         />
 
-        <input type="submit" className="edit" value="Edit" />
+        <input type="submit" className="edit" value="Editer" />
       </form>
       <div className="container-actuality">
         <h2>ACTUALITE:</h2>
-        {api.map((list) => (
-          <ul key={list.id}>
-            <h3>{list.title}</h3>
-            <img src={list.url} alt="" />
-            <h3>Author : {list.name}</h3>
-            <p>{list.content}</p>
-            <span>Posté le: {dateFormater(list.date)}</span>
-
-            <button type="button" onClick={() => handleDelete(list.id)}>
+        {api.map((item) => (
+          <ul key={item.id}>
+            <h2>{item.title}</h2>
+            <img src={item.url} alt="" />
+            <h3>Auteur : {item.name}</h3>
+            <p>{item.content}</p>
+            <span>Posté le: {dateFormater(item.date)}</span>
+            <button type="button" onClick={() => handleDelete(item.id)}>
               Supprimer
             </button>
           </ul>
