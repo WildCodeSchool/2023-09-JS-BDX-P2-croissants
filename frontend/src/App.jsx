@@ -4,7 +4,13 @@ import MovieCard from "./components/MovieCard";
 import Filter from "./components/Filter";
 import FilmOfDay from "./components/FilmOfDay";
 import BackToTopButton from "./components/BackToTopButton";
+
+import mute from "./assets/nous/play.png";
+import pause from "./assets/nous/pause.png";
+import son from "./assets/nous/son.mp3";
+
 import { FilterContext } from "./context/FilterContext";
+
 
 function App() {
   const [isPlaying, setIsPlaying] = useState(false); // Le son
@@ -53,11 +59,7 @@ function App() {
         >
           <img
             className="img-son"
-            src={
-              isPlaying
-                ? "src/assets/volume-up.svg"
-                : "src/assets/volume-mute.svg"
-            }
+            src={isPlaying ? mute : pause}
             alt={isPlaying ? "Désactiver le son" : "Activer le son"}
           />
         </button>
@@ -66,7 +68,7 @@ function App() {
         <MovieCard />
         <audio ref={audioRef}>
           <track kind="captions" />
-          <source src="src/assets/son.mp3" type="audio/mpeg" />
+          <source src={son} type="audio/mpeg" />
         </audio>
       </div>
       <BackToTopButton />
